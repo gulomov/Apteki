@@ -1,4 +1,4 @@
-package com.example.apteki.ui.home
+package com.example.apteki.ui.products
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.apteki.R
-import com.example.apteki.databinding.FragmentHomeBinding
+import com.example.apteki.databinding.FragmentProductsBinding
 
-class HomeFragment : Fragment() {
+class ProductsFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var productsViewModel: ProductsViewModel
+    private var _binding: FragmentProductsBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,8 +22,10 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        productsViewModel =
+            ViewModelProvider(this).get(ProductsViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentProductsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 

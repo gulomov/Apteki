@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_dashboard">
-
-    <fragment
-        android:id="@+id/nav_dashboard"
-        android:name="com.example.apteki.ui.home.HomeFragment"
-        android:label="@string/menu_dashboard"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@+id/nav_branches">
 
     <fragment
         android:id="@+id/nav_branches"
-        android:name="com.example.apteki.ui.gallery.GalleryFragment"
+        android:name="com.example.apteki.ui.branches.BranchesFragment"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_branches" />
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.apteki.ui.dashboard.DashboardFragment"
         android:label="@string/menu_branches"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/nav_products"
-        android:name="com.example.apteki.ui.slideshow.SlideshowFragment"
+        android:name="com.example.apteki.ui.products.ProductsFragment"
         android:label="@string/menu_products"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_products" />
 </navigation>

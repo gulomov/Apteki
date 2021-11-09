@@ -14,4 +14,5 @@
     <color name="view_item_title_color">#304F42</color>
     <color name="view_item_amount_color">#6FA21C</color>
     <color name="view_item_currency_color">#A3A3A3</color>
+    <color name="edit_text_background_color">#F5F5FA</color>
 </resources>

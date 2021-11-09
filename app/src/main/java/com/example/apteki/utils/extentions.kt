@@ -1,12 +1,27 @@
 package com.example.apteki.utils
 
 import android.graphics.Rect
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apteki.R
 
 fun Fragment.toDpi(px: Int): Int {
     return ((requireContext().resources.displayMetrics.density * px) + 0.5f).toInt()
+}
+
+fun Fragment.navigate(resId: Int, args: Bundle? = null) {
+
+    val builder = NavOptions.Builder()
+        .setEnterAnim(R.anim.slide_in)
+        .setExitAnim(R.anim.slide_out)
+        .setPopEnterAnim(R.anim.fade_in)
+        .setPopExitAnim(R.anim.fade_out)
+
+    this.findNavController().navigate(resId, args, builder.build())
 }
 
 class SpacesItemDecoration(

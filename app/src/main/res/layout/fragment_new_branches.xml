@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:padding="24dp"
+    tools:context=".ui.branches.NewBranches">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/addingBranchNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_name"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/addingBranchNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder_for_edit_text"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/adding_new_branch_name_hint"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_title_color"
+                android:textColorHint="@color/view_item_title_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchNameTextView" />
+
+            <TextView
+                android:id="@+id/addingBranchPhoneTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_phone"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchNameEditText" />
+
+            <EditText
+                android:id="@+id/addingBranchPhoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder_for_edit_text"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/adding_new_branch_phone_hint"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_title_color"
+                android:textColorHint="@color/view_item_title_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchPhoneTextView" />
+
+            <TextView
+                android:id="@+id/addingBranchAddressTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_phone"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchPhoneEditText" />
+
+            <EditText
+                android:id="@+id/addingBranchAddressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder_for_edit_text"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/adding_new_branch_address_hint"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_title_color"
+                android:textColorHint="@color/view_item_title_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchAddressTextView" />
+
+            <TextView
+                android:id="@+id/addingBranchWorkTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_work_time"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchAddressEditText" />
+
+            <EditText
+                android:id="@+id/addingBranchWorkTimeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder_for_edit_text"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/adding_new_branch_work_time_hint"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_title_color"
+                android:textColorHint="@color/view_item_title_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchWorkTimeTextView" />
+
+            <TextView
+                android:id="@+id/addingBranchMapLatitudeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_map_latitude"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchWorkTimeEditText" />
+
+            <EditText
+                android:id="@+id/addingBranchLatitudeEditView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder_for_edit_text"
+                android:fontFamily="@font/montserrat_regular"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_title_color"
+                android:textColorHint="@color/view_item_title_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchMapLatitudeTextView" />
+
+
+            <TextView
+                android:id="@+id/addingBranchRegionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_region"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchLatitudeEditView" />
+
+            <Spinner
+                android:id="@+id/addingBranchRegionSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_rounder_for_edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchRegionTextView" />
+
+            <TextView
+                android:id="@+id/addingBranchDeliveryTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_delivery"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/addingBranchDeliveryCheckBox"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/addingBranchDeliveryCheckBox" />
+
+            <ImageView
+                android:id="@+id/addingBranchDeliveryCheckBox"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:src="@drawable/un_checked"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.448"
+                app:layout_constraintStart_toEndOf="@+id/addingBranchDeliveryTextView"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchRegionSpinner"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/addingBranchSubmitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_rounder_for_edit_text"
+                android:text="@string/adding_new_branch_submit"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchDeliveryCheckBox" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

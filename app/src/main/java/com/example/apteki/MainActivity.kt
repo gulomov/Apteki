@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var navView: NavigationView
     private lateinit var drawerIcon: ImageView
+    private var inMain = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         drawerLayout = binding.drawerLayout
         navView = binding.navView
-        drawerIcon = binding.contentMenu.appBarMain.drawerIcon
+        drawerIcon = binding.contentMenu.appBarMain.
+        drawerIcon
         navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_dashboard,R.id.nav_branches, R.id.nav_products
+                R.id.nav_dashboard, R.id.nav_branches, R.id.nav_products
             ), drawerLayout
         )
 
@@ -55,7 +57,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun openOrCloseDrawer() {
         binding.contentMenu.appBarMain.drawerIcon.setOnClickListener {
-            drawerLayout.openDrawer(Gravity.LEFT)
+            if (inMain)
+                drawerLayout.openDrawer(Gravity.LEFT)
         }
         binding.contentMenu.contentId.setOnClickListener {
             drawerLayout.closeDrawer(Gravity.LEFT)
@@ -79,12 +82,19 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.nav_branches -> {
                     drawerIcon.setImageResource(R.drawable.nav_header_menu)
+                    inMain = true
                 }
                 R.id.nav_dashboard -> {
                     drawerIcon.setImageResource(R.drawable.ic_back)
+                    inMain = false
                 }
                 R.id.nav_products -> {
                     drawerIcon.setImageResource(R.drawable.ic_back)
+                    inMain = false
+                }
+                R.id.nav_newBranches -> {
+                    drawerIcon.setImageResource(R.drawable.ic_back)
+                    inMain = false
                 }
             }
         }

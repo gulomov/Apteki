@@ -13,6 +13,22 @@
     <string name="menu_products">Mahsulotlar</string>
     <string name="nav_header_dev_title"><![CDATA[OOO <<DigitalCity>> 2021]]></string>
     <string name="example">Example</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adding_new_branch_name_hint">Dori apteki</string>
+    <string name="adding_new_branch_name">Nomi</string>
+    <string name="adding_new_branch_phone">Telefon raqam</string>
+    <string name="adding_new_branch_phone_hint">12345678</string>
+    <string name="adding_new_branch_address">Manzil</string>
+    <string name="adding_new_branch_address_hint">Andijon shaxar</string>
+    <string name="adding_new_branch_work_time">Ish vaqti</string>
+    <string name="adding_new_branch_work_time_hint">08:00 dan 18:00</string>
+    <string name="adding_new_branch_map_latitude">Xarita uzunlig va kenglik</string>
+    <string name="adding_new_branch_map_latitude_hint"> </string>
+    <string name="adding_new_branch_map_longitude">Xarita uzunlik</string>
+    <string name="adding_new_branch_map_longitude_hint"> </string>
+    <string name="adding_new_branch_region">Viloyat</string>
+    <string name="adding_new_branch_delivery">Yetkazib berish xizmati</string>
+    <string name="adding_new_branch_submit">Tasdiqlash</string>
+
+
 </resources>

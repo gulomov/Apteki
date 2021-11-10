@@ -29,6 +29,17 @@
     <string name="adding_new_branch_region">Viloyat</string>
     <string name="adding_new_branch_delivery">Yetkazib berish xizmati</string>
     <string name="adding_new_branch_submit">Tasdiqlash</string>
+    <string name="trade">Savdo</string>
+    <string name="invoices">Fakturalar</string>
+    <string name="employee">Hodimlar</string>
+    <string name="login">Login</string>
+    <string name="password">Parol</string>
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Parol</string>
+    <string name="login_enter">kirish</string>
+    <string name="login_empty">"Login kiriting"</string>
+    <string name="password_empty">"Parol kiriting"</string>
+    <string name="both_empty">"Parol va Login kiriting"</string>
 
 
 </resources>

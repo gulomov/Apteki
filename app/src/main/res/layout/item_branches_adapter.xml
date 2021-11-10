@@ -20,7 +20,7 @@
             android:layout_margin="16dp"
             android:fontFamily="@font/montserrat_regular"
             android:text="@string/example"
-            android:textColor="@color/view_item_title_color"
+            android:textColor="@color/view_item_color"
             android:textSize="20sp" />
 
         <TextView

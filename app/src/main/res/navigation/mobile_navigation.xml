@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_branches">
+    app:startDestination="@id/nav_branches">
 
     <fragment
         android:id="@+id/nav_branches"
@@ -27,4 +27,15 @@
         android:id="@+id/nav_newBranches"
         android:name="com.example.apteki.ui.branches.NewBranches"
         tools:layout="@layout/fragment_new_branches" />
+    <fragment
+        android:id="@+id/nav_logIn"
+        android:name="com.example.apteki.ui.login.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in">
+        <action
+            android:id="@+id/action_nav_logIn_to_nav_branches"
+            app:destination="@id/nav_branches"
+            app:popUpTo="@id/nav_logIn"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

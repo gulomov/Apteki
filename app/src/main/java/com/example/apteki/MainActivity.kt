@@ -2,6 +2,7 @@ package com.example.apteki
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.widget.ImageView
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -11,6 +12,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import com.example.apteki.databinding.ActivityMainBinding
 import com.example.apteki.utils.NavigationUiHelper
@@ -22,14 +24,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navController: NavController
     private lateinit var navView: NavigationView
-    private var inMain = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.contentMenu.appBarMain.toolbarMain)
 
         drawerLayout = binding.drawerLayout
         navView = binding.navView
@@ -45,8 +45,20 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false);
         setupActionBar(navController)
         setUpDrawer()
+        goToLogIn()
     }
 
+    /*TODO write logic to check from Pref Manager*/
+    private fun goToLogIn() {
+        var token = true
+        if (token) {
+            navController.popBackStack(
+                com.example.apteki.R.id.nav_logIn,
+                true
+            )
+            navController.navigate(R.id.nav_logIn)
+        }
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, drawerLayout)
@@ -71,26 +83,30 @@ class MainActivity : AppCompatActivity() {
         }
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            binding.contentMenu.appBarMain.toolbarMain.visibility = View.VISIBLE
+            binding.contentMenu.toolbarLogo.visibility = View.VISIBLE
+
             when (destination.id) {
                 R.id.nav_branches -> {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.nav_header_menu, null)
-                    inMain = true
                 }
+
                 R.id.nav_dashboard -> {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
-                    inMain = false
                 }
                 R.id.nav_products -> {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
-                    inMain = false
                 }
                 R.id.nav_newBranches -> {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
-                    inMain = false
+                }
+                R.id.nav_logIn -> {
+                    binding.contentMenu.appBarMain.toolbarMain.visibility = View.INVISIBLE
+                    binding.contentMenu.toolbarLogo.visibility = View.INVISIBLE
                 }
             }
         }

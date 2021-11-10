@@ -29,14 +29,11 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.contentMenu.appBarMain.toolbarMain)
-
 
         drawerLayout = binding.drawerLayout
         navView = binding.navView
-        drawerIcon = binding.contentMenu.appBarMain.
-        drawerIcon
+        drawerIcon = binding.contentMenu.appBarMain.drawerIcon
         navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -46,14 +43,20 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
         openOrCloseDrawer()
+        setSupportActionBar(binding.contentMenu.appBarMain.toolbarMain)
+        setupActionBar(navController)
         setUpDrawer()
     }
 
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
+
+    private fun setupActionBar(navController: NavController) {
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+    }
+
 
     private fun openOrCloseDrawer() {
         binding.contentMenu.appBarMain.drawerIcon.setOnClickListener {

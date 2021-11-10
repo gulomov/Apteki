@@ -54,6 +54,9 @@ class NewBranches : Fragment() {
     }
 
     private fun onBackPressed() {
+        drawerIcon.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun checkBoxClicking() {

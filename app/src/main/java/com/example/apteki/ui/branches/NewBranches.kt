@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentNewBranchesBinding
@@ -47,17 +46,10 @@ class NewBranches : Fragment() {
         _binding = FragmentNewBranchesBinding.inflate(inflater, container, false)
         val root: View = binding.root
         checkBoxImg = binding.addingBranchDeliveryCheckBox
-        drawerIcon = activity?.findViewById<ImageView>(R.id.drawerIcon)!!
         checkBoxClicking()
-        onBackPressed()
         return root
     }
 
-    private fun onBackPressed() {
-        drawerIcon.setOnClickListener {
-            findNavController().popBackStack()
-        }
-    }
 
     private fun checkBoxClicking() {
         checkBoxImg.setOnClickListener {

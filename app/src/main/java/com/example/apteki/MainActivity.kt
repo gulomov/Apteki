@@ -7,6 +7,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navController: NavController
     private lateinit var navView: NavigationView
-    private lateinit var drawerIcon: ImageView
     private var inMain = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         drawerLayout = binding.drawerLayout
         navView = binding.navView
-        drawerIcon = binding.contentMenu.appBarMain.drawerIcon
         navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -42,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         )
 
         navView.setupWithNavController(navController)
-        openOrCloseDrawer()
         setSupportActionBar(binding.contentMenu.appBarMain.toolbarMain)
+        supportActionBar?.setDisplayShowTitleEnabled(false);
         setupActionBar(navController)
         setUpDrawer()
     }
@@ -57,16 +56,6 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
     }
 
-
-    private fun openOrCloseDrawer() {
-        binding.contentMenu.appBarMain.drawerIcon.setOnClickListener {
-            if (inMain)
-                drawerLayout.openDrawer(Gravity.LEFT)
-        }
-        binding.contentMenu.contentId.setOnClickListener {
-            drawerLayout.closeDrawer(Gravity.LEFT)
-        }
-    }
 
     private fun setUpDrawer() {
         navView.setNavigationItemSelectedListener { item ->
@@ -84,23 +73,26 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
                 R.id.nav_branches -> {
-                    drawerIcon.setImageResource(R.drawable.nav_header_menu)
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.nav_header_menu, null)
                     inMain = true
                 }
                 R.id.nav_dashboard -> {
-                    drawerIcon.setImageResource(R.drawable.ic_back)
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                     inMain = false
                 }
                 R.id.nav_products -> {
-                    drawerIcon.setImageResource(R.drawable.ic_back)
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                     inMain = false
                 }
                 R.id.nav_newBranches -> {
-                    drawerIcon.setImageResource(R.drawable.ic_back)
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                     inMain = false
                 }
             }
         }
-
     }
 }

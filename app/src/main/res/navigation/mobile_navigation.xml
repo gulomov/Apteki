@@ -8,8 +8,7 @@
     <fragment
         android:id="@+id/nav_branches"
         android:name="com.example.apteki.ui.branches.BranchesFragment"
-        android:label="@string/menu_dashboard"
-        tools:layout="@layout/fragment_branches" >
+        tools:layout="@layout/fragment_branches">
         <action
             android:id="@+id/action_nav_branches_to_nav_newBranches"
             app:destination="@id/nav_newBranches" />
@@ -18,17 +17,14 @@
     <fragment
         android:id="@+id/nav_dashboard"
         android:name="com.example.apteki.ui.dashboard.DashboardFragment"
-        android:label="@string/menu_branches"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/nav_products"
         android:name="com.example.apteki.ui.products.ProductsFragment"
-        android:label="@string/menu_products"
         tools:layout="@layout/fragment_products" />
     <fragment
         android:id="@+id/nav_newBranches"
         android:name="com.example.apteki.ui.branches.NewBranches"
-        android:label="fragment_new_branches"
         tools:layout="@layout/fragment_new_branches" />
 </navigation>

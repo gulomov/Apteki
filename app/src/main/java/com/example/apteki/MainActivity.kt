@@ -1,6 +1,7 @@
 package com.example.apteki
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
@@ -14,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
+import com.example.apteki.data.isLoggedIn
 import com.example.apteki.databinding.ActivityMainBinding
 import com.example.apteki.utils.NavigationUiHelper
 
@@ -48,12 +50,11 @@ class MainActivity : AppCompatActivity() {
         goToLogIn()
     }
 
-    /*TODO write logic to check from Pref Manager*/
     private fun goToLogIn() {
-        var token = true
-        if (token) {
+        Log.d("logged", "here ${this.isLoggedIn()}")
+        if (!this.isLoggedIn()) {
             navController.popBackStack(
-                com.example.apteki.R.id.nav_logIn,
+                R.id.nav_branches,
                 true
             )
             navController.navigate(R.id.nav_logIn)

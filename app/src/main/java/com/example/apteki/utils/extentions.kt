@@ -3,6 +3,7 @@ package com.example.apteki.utils
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.Activity
+import android.content.Context
 import android.content.res.Resources
 import android.graphics.Rect
 import android.os.Bundle
@@ -13,39 +14,43 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apteki.R
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.ViewGroup
 import android.view.animation.TranslateAnimation
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatEditText
 
 
 fun Fragment.toDpi(px: Int): Int {
     return ((requireContext().resources.displayMetrics.density * px) + 0.5f).toInt()
 }
 
-
-fun Fragment.slideUp(view: View) {
-    view.visibility = View.VISIBLE
-    val animate = TranslateAnimation(
-        0F,  // fromXDelta
-        0F,  // toXDelta
-        view.height.toFloat(),  // fromYDelta
-        0F
-    ) // toYDelta
-    animate.duration = 500
-    animate.fillAfter = true
-    view.startAnimation(animate)
+fun Activity.hideSoftKeyboard() {
+    if (currentFocus != null) {
+        val inputMethodManager = getSystemService(
+            Context
+                .INPUT_METHOD_SERVICE
+        ) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+    }
 }
 
-fun Fragment.slideDown(view: View) {
-    val animate = TranslateAnimation(
-        0F,  // fromXDelta
-        0F,  // toXDelta
-        0F,  // fromYDelta
-        view.height.toFloat()
-    ) // toYDelta
-    animate.duration = 500
-    animate.fillAfter = true
-    view.startAnimation(animate)
+fun Fragment.hideKeyboard() {
+    activity?.hideSoftKeyboard()
 }
+
+fun Fragment.optionDone(appCompatEditText: AppCompatEditText) {
+    appCompatEditText.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+        if (actionId == EditorInfo.IME_ACTION_DONE) {
+            hideKeyboard()
+            return@OnEditorActionListener true
+        }
+        false
+    })
+}
+
 
 
 fun Fragment.animUp(view: View) {

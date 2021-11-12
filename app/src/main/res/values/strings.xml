@@ -40,6 +40,9 @@
     <string name="login_empty">"Login kiriting"</string>
     <string name="password_empty">"Parol kiriting"</string>
     <string name="both_empty">"Parol va Login kiriting"</string>
+    <string name="cash_title">Naqd:</string>
+    <string name="loan_title">Nasiya:</string>
+    <string name="card_title">Plastik:</string>
 
 
 </resources>

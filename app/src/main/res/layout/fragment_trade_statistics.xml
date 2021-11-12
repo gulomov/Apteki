@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:paddingTop="32dp"
+
+    tools:context=".ui.dashboard.Trade.TradeStatisticsFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/calendarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_oval"
+            android:elevation="10dp"
+            android:src="@drawable/ic_calendar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fromData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rounder"
+            android:elevation="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="8dp"
+            android:text="@string/example"
+            android:textAlignment="center"
+            android:textColor="@color/view_item_color"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/toData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rounder"
+            android:elevation="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="8dp"
+            android:text="@string/example"
+            android:textAlignment="center"
+            android:textColor="@color/view_item_color"
+            android:textSize="15sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dashboardTradeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounder"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/trade"
+        android:textColor="@color/view_item_color"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/calendarLayout"
+        app:layout_constraintStart_toStartOf="@+id/calendarLayout"
+        app:layout_constraintTop_toBottomOf="@+id/calendarLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dashboardTradeRecycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboardTradeBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

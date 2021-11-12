@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToLogIn() {
-        Log.d("logged", "here ${this.isLoggedIn()}")
         if (!this.isLoggedIn()) {
             navController.popBackStack(
                 R.id.nav_branches,
@@ -68,7 +67,6 @@ class MainActivity : AppCompatActivity() {
     private fun setupActionBar(navController: NavController) {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
     }
-
 
     private fun setUpDrawer() {
         navView.setNavigationItemSelectedListener { item ->
@@ -92,7 +90,6 @@ class MainActivity : AppCompatActivity() {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.nav_header_menu, null)
                 }
-
                 R.id.nav_dashboard -> {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
@@ -102,6 +99,10 @@ class MainActivity : AppCompatActivity() {
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                 }
                 R.id.nav_newBranches -> {
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                }
+                R.id.nav_trade_stats -> {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                 }

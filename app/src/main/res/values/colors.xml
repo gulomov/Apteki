@@ -12,7 +12,8 @@
     <color name="nav_header_dev_title_color">#FBFBFB</color>
     <color name="app_background">#6FA21C</color>
     <color name="view_item_color">#304F42</color>
-    <color name="view_item_amount_color">#6FA21C</color>
+    <color name="color_like_app_background">#6FA21C</color>
     <color name="view_item_currency_color">#A3A3A3</color>
     <color name="edit_text_background_color">#F5F5FA</color>
+    <color name="view_item_grey">#8E8E8E</color>
 </resources>

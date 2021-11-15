@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.apteki.R
 import com.example.apteki.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -22,8 +24,21 @@ class DashboardFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
-
+        setUpClickListener()
         return binding.root
+    }
+
+    private fun setUpClickListener() {
+        binding.dashboardTradeBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_dashboard_to_nav_trade_stats)
+        }
+        binding.dashboardInvoicesBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_dashboard_to_invoiceFragment)
+        }
+
+        binding.dashboardEmployee.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_dashboard_to_employeeFragment)
+        }
     }
 
     override fun onDestroyView() {

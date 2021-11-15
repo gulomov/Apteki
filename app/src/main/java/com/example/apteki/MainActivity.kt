@@ -106,6 +106,14 @@ class MainActivity : AppCompatActivity() {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                 }
+                R.id.nav_invoice_stats -> {
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                }
+                R.id.nav_employee_fragment -> {
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                }
                 R.id.nav_logIn -> {
                     binding.contentMenu.appBarMain.toolbarMain.visibility = View.INVISIBLE
                     binding.contentMenu.toolbarLogo.visibility = View.INVISIBLE

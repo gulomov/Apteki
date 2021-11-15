@@ -3,6 +3,7 @@ package com.example.apteki.utils
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Rect
@@ -19,12 +20,40 @@ import android.view.ViewGroup
 import android.view.animation.TranslateAnimation
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.DatePicker
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatEditText
+import java.util.*
 
 
 fun Fragment.toDpi(px: Int): Int {
     return ((requireContext().resources.displayMetrics.density * px) + 0.5f).toInt()
+}
+
+fun Fragment.dialogForCalendar(text: String, textView: TextView) {
+    val dialog = Dialog(requireContext(), R.style.MyAlertDialogTheme)
+    dialog.setCancelable(true)
+    dialog.setContentView(R.layout.date_picker)
+    dialog.show()
+
+    var date = dialog.findViewById<DatePicker>(R.id.date)
+    val today = Calendar.getInstance()
+    date.init(
+        today.get(Calendar.YEAR),
+        today.get(Calendar.MONTH),
+        today.get(Calendar.DAY_OF_MONTH)
+    ) { view, year, monthOfYear, dayOfMonth ->
+        val month = monthOfYear + 1
+        val msg = "$dayOfMonth.$month.$year"
+        if (text == "fromData") {
+            textView.text = msg
+        } else if (text == "toData") {
+            textView.text = msg
+        }
+
+        dialog.dismiss()
+    }
+
 }
 
 fun Activity.hideSoftKeyboard() {
@@ -50,7 +79,6 @@ fun Fragment.optionDone(appCompatEditText: AppCompatEditText) {
         false
     })
 }
-
 
 
 fun Fragment.animUp(view: View) {

@@ -13,6 +13,7 @@
     <string name="menu_products">Mahsulotlar</string>
     <string name="nav_header_dev_title"><![CDATA[OOO <<DigitalCity>> 2021]]></string>
     <string name="example">Example</string>
+    <string name="date_example">01.01.2021</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="adding_new_branch_name_hint">Dori apteki</string>
     <string name="adding_new_branch_name">Nomi</string>
@@ -30,6 +31,7 @@
     <string name="adding_new_branch_delivery">Yetkazib berish xizmati</string>
     <string name="adding_new_branch_submit">Tasdiqlash</string>
     <string name="trade">Savdo</string>
+    <string name="filter">Saralash</string>
     <string name="invoices">Fakturalar</string>
     <string name="employee">Hodimlar</string>
     <string name="login">Login</string>
@@ -43,6 +45,9 @@
     <string name="cash_title">Naqd:</string>
     <string name="loan_title">Nasiya:</string>
     <string name="card_title">Plastik:</string>
+    <string name="invoice_loan_title">Umumiy summa:</string>
+    <string name="invoice_warehouse_title">Ombor:</string>
+
 
 
 </resources>

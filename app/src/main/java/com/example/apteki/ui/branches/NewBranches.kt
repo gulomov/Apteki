@@ -17,7 +17,6 @@ class NewBranches : Fragment() {
     private var _binding: FragmentNewBranchesBinding? = null
     private val binding get() = _binding!!
     private lateinit var checkBoxImg: ImageView
-    private lateinit var drawerIcon: ImageView
     private var check = false
     private lateinit var onBackPressedCallback: OnBackPressedCallback
 

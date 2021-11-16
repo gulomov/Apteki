@@ -174,11 +174,11 @@ class SpacesItemDecoration(
                 outRect.right = space
                 outRect.bottom = space - space / 4
                 outRect.top = 0
-                if (itemposition == 0)
-                    outRect.top = space
-                else {
-                    outRect.top = 0
-                }
+//                if (itemposition == 0)
+//                    outRect.top = space
+//                else {
+//                    outRect.top = 0
+//                }
             }
         } else {
             outRect.top = 2

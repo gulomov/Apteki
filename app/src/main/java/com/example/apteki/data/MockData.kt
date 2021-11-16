@@ -80,6 +80,13 @@ class MockData {
             return list
         }
 
+        fun getBranchInfo(): List<BranchInfo> {
+            val list = ArrayList<BranchInfo>()
+            list.add(BranchInfo("Johongir", "Andijon Shaxar", "90 123-45-67", "Fillial 1"))
+            list.add(BranchInfo("Johongir", "Andijon Shaxar", "90 123-45-67", "Fillial 1"))
+            list.add(BranchInfo("Johongir", "Andijon Shaxar", "90 123-45-67", "Fillial 1"))
+            return list
+        }
 
     }
 
@@ -97,5 +104,12 @@ class MockData {
         val filialTitle: String? = null,
         val overallSum: String? = null,
         val employeeName: String? = null,
+    )
+
+    data class BranchInfo(
+        val name: String,
+        val address: String,
+        val phone: String,
+        val branch: String
     )
 }

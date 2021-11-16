@@ -47,7 +47,17 @@
     <string name="card_title">Plastik:</string>
     <string name="invoice_loan_title">Umumiy summa:</string>
     <string name="invoice_warehouse_title">Ombor:</string>
-
+    <string name="see_the_trade">Savdoni ko\'rish</string>
+    <string name="address">Manzil:</string>
+    <string name="address_no_dots">Manzil</string>
+    <string name="phone_number">Telefon:</string>
+    <string name="phone_number_no_dots">Telefon raqaimi</string>
+    <string name="employee_name">Ism, Familya</string>
+    <string name="branch_name">Fillial nomi</string>
+    <string name="branch_hint">Fillial 1</string>
+    <string name="address_hint">Andidjon shaxar</string>
+    <string name="phone_hint">12345678</string>
+    <string name="fill_the_blank">Bo\'sh joylarni to\'ldiring</string>
 
 
 </resources>

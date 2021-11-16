@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_dashboard">
+    app:startDestination="@id/nav_employee_info">
 
     <fragment
         android:id="@+id/nav_branches"
@@ -61,4 +61,17 @@
         android:id="@+id/nav_employee_fragment"
         android:name="com.example.apteki.ui.dashboard.employee.EmployeeFragment"
         android:label="EmployeeFragment" />
+    <fragment
+        android:id="@+id/nav_employee_info"
+        android:name="com.example.apteki.ui.dashboard.employee.info.EmployeeInfoFragment"
+        android:label="BranchInfoFragment" >
+        <action
+            android:id="@+id/action_nav_branch_info_to_employeeAddFragment"
+            app:destination="@id/nav_add_employee" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_add_employee"
+        android:name="com.example.apteki.ui.dashboard.employee.EmployeeAddFragment"
+        android:label="fragment_employee_add"
+        tools:layout="@layout/fragment_employee_add" />
 </navigation>

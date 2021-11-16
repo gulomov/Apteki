@@ -65,8 +65,6 @@ class TradeStatisticsAdapter(type: String) :
                 binding.loan.visibility = View.GONE
                 binding.overallSumTitle.visibility = View.VISIBLE
                 binding.overallSum.visibility = View.VISIBLE
-
-
                 binding.tradeDate.text = trade.date
                 binding.cash.text = trade.filialTitle
                 binding.overallSum.text = trade.overallSum

@@ -1,10 +1,7 @@
 package com.example.apteki
 
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
 import android.view.View
-import android.widget.ImageView
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.drawerlayout.widget.DrawerLayout
@@ -13,7 +10,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import com.example.apteki.data.isLoggedIn
 import com.example.apteki.databinding.ActivityMainBinding
@@ -111,6 +107,14 @@ class MainActivity : AppCompatActivity() {
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                 }
                 R.id.nav_employee_fragment -> {
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                }
+                R.id.nav_employee_info -> {
+                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
+                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                }
+                R.id.nav_add_employee -> {
                     binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
                         ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
                 }

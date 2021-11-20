@@ -8,16 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import com.example.apteki.databinding.FragmentLogInBinding
-import androidx.navigation.fragment.findNavController
 import com.example.apteki.utils.*
 import android.os.Looper
 import android.util.Log
 import androidx.appcompat.widget.AppCompatEditText
-
+import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
-import androidx.navigation.Navigation
-import com.example.apteki.data.savePassword
-import com.example.apteki.data.setLoggedIn
+import androidx.navigation.fragment.findNavController
+import com.example.apteki.R
+import com.example.apteki.data.*
+import com.example.apteki.network.Resource
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LogInFragment : Fragment() {
@@ -27,9 +28,9 @@ class LogInFragment : Fragment() {
     private lateinit var passwordIcon: ImageButton
     private lateinit var loginEdit: AppCompatEditText
     private lateinit var navOptions: NavOptions
+    private val viewModel: LoginViewModel by viewModel()
 
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +43,7 @@ class LogInFragment : Fragment() {
         navOptions = NavOptions.Builder()
             .setPopUpTo(com.example.apteki.R.id.nav_logIn, true)
             .build()
+        getDataFromLogin()
         return binding.root
     }
 
@@ -78,16 +80,7 @@ class LogInFragment : Fragment() {
     private fun goNext() {
         binding.logInBtn.setOnClickListener {
             if (loginEdit.text!!.isNotEmpty() && passwordEdit.text!!.isNotEmpty()) {
-                findNavController().popBackStack(
-                    com.example.apteki.R.id.action_nav_logIn_to_nav_branches,
-                    true
-                )
-                requireContext().savePassword(passwordEdit.text.toString())
-                requireContext().setLoggedIn()
-                findNavController().navigate(
-                    com.example.apteki.R.id.action_nav_logIn_to_nav_branches,
-                    null, navOptions
-                )
+                viewModel.getLogIn(loginEdit.text.toString(), passwordEdit.text.toString())
 
             } else {
                 if (loginEdit.text!!.isEmpty() && passwordEdit.text!!.isEmpty()) {
@@ -106,6 +99,40 @@ class LogInFragment : Fragment() {
                 }, 1000)
             }
         }
+    }
+
+    private fun getDataFromLogin() {
+        viewModel.resourceLogin.observe(viewLifecycleOwner, Observer { it ->
+            it.getContentIfNotHandled().let { resource ->
+                when (resource) {
+                    is Resource.Loading -> {
+
+                    }
+                    is Resource.Success -> {
+                        requireContext().saveToken(resource.data.data.token)
+                        requireContext().saveCompanyToken(resource.data.data.user.company.token)
+                        if (resource.data.success) {
+                            findNavController().navigate(
+                                R.id.action_nav_logIn_to_nav_branches,
+                                null, navOptions
+                            )
+                            requireContext().savePassword(passwordEdit.text.toString())
+                            requireContext().setLoggedIn()
+                        }
+                    }
+                    is Resource.GenericError -> {
+
+                        Log.d(
+                            "here",
+                            "here2 ${resource.errorResponse.message}"
+                        )
+                    }
+                    is Resource.Error -> {
+                        Log.d("here", "here3  ${resource.exception.message}")
+                    }
+                }
+            }
+        })
     }
 
 }

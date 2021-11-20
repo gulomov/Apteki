@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentBranchInfoBinding
 import com.example.apteki.utils.SpacesItemDecoration
+import com.example.apteki.utils.navigate
 import com.example.apteki.utils.toDpi
 
 class EmployeeInfoFragment : Fragment() {
@@ -47,7 +48,7 @@ class EmployeeInfoFragment : Fragment() {
 
     private fun setOnClickListener() {
         binding?.branchesAddBtn?.setOnClickListener {
-            findNavController().navigate(R.id.nav_add_employee)
+           navigate(R.id.nav_add_employee)
         }
 
     }

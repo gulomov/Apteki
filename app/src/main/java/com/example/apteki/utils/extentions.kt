@@ -131,13 +131,28 @@ fun Fragment.animDown(view: View) {
     }
 }
 
+fun View.hide(): View {
+    if (visibility != View.INVISIBLE) {
+        visibility = View.INVISIBLE
+        Log.d("DefaultTag", "actually hidden")
+    }
+    return this
+}
+
+fun View.show(): View {
+    if (visibility != View.VISIBLE) {
+        visibility = View.VISIBLE
+    }
+    return this
+}
+
 fun Fragment.navigate(resId: Int, args: Bundle? = null) {
 
     val builder = NavOptions.Builder()
-        .setEnterAnim(R.anim.slide_in)
-        .setExitAnim(R.anim.slide_out)
-        .setPopEnterAnim(R.anim.fade_in)
-        .setPopExitAnim(R.anim.fade_out)
+        .setEnterAnim(R.anim.enter)
+        .setExitAnim(R.anim.exit)
+        .setPopEnterAnim(R.anim.pop_enter)
+        .setPopExitAnim(R.anim.pop_exit)
 
     this.findNavController().navigate(resId, args, builder.build())
 }

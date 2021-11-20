@@ -1,6 +1,7 @@
 package com.example.apteki
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -29,21 +30,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        drawerLayout = binding.drawerLayout
-        navView = binding.navView
-        navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_dashboard, R.id.nav_branches, R.id.nav_products
-            ), drawerLayout
-        )
 
-        navView.setupWithNavController(navController)
-        setSupportActionBar(binding.contentMenu.appBarMain.toolbarMain)
-        supportActionBar?.setDisplayShowTitleEnabled(false);
-        setupActionBar(navController)
         setUpDrawer()
         goToLogIn()
+        drawerClick()
+        onDestinationChanged()
     }
 
     private fun goToLogIn() {
@@ -57,72 +48,120 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, drawerLayout)
+        navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun setupActionBar(navController: NavController) {
-        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-    }
 
     private fun setUpDrawer() {
+        drawerLayout = binding.drawerLayout
+        navView = binding.navView
+        navController = findNavController(R.id.nav_host_fragment_content_main)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_dashboard, R.id.nav_branches, R.id.nav_products
+            ), drawerLayout
+        )
+
+        navView.setupWithNavController(navController)
+
+
         navView.setNavigationItemSelectedListener { item ->
             val builder = NavOptions.Builder()
                 .setLaunchSingleTop(true)
-                .setEnterAnim(R.anim.nav_default_enter_anim)
-                .setExitAnim(R.anim.nav_default_exit_anim)
-                .setPopEnterAnim(R.anim.nav_default_pop_enter_anim)
-                .setPopExitAnim(R.anim.nav_default_pop_exit_anim)
+                .setEnterAnim(R.anim.enter)
+                .setExitAnim(R.anim.exit)
+                .setPopEnterAnim(R.anim.pop_enter)
+                .setPopExitAnim(R.anim.pop_exit)
             NavigationUiHelper.onNavDestinationSelected(item, navController, builder)
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
 
+
+    }
+
+    private fun onDestinationChanged() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            binding.contentMenu.appBarMain.toolbarMain.visibility = View.VISIBLE
-            binding.contentMenu.toolbarLogo.visibility = View.VISIBLE
+
 
             when (destination.id) {
                 R.id.nav_branches -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.nav_header_menu, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.GONE
+                    binding.appBarMain.drawerIcon.visibility = View.VISIBLE
                 }
                 R.id.nav_dashboard -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.GONE
+                    binding.appBarMain.drawerIcon.visibility = View.VISIBLE
                 }
                 R.id.nav_products -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.GONE
+                    binding.appBarMain.drawerIcon.visibility = View.VISIBLE
                 }
                 R.id.nav_newBranches -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.VISIBLE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
                 R.id.nav_trade_stats -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.VISIBLE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
                 R.id.nav_invoice_stats -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.VISIBLE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
                 R.id.nav_employee_fragment -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.VISIBLE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
                 R.id.nav_employee_info -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.VISIBLE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
                 R.id.nav_add_employee -> {
-                    binding.contentMenu.appBarMain.toolbarMain.navigationIcon =
-                        ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null)
+                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
+                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.VISIBLE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
                 R.id.nav_logIn -> {
-                    binding.contentMenu.appBarMain.toolbarMain.visibility = View.INVISIBLE
-                    binding.contentMenu.toolbarLogo.visibility = View.INVISIBLE
+                    binding.appBarMain.backIcon.visibility = View.GONE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
+                    binding.appBarMain.toolbarLogo.visibility = View.GONE
+                    binding.appBarMain.whiteLine.visibility = View.GONE
                 }
             }
         }
     }
+
+    private fun drawerClick() {
+        binding.appBarMain.drawerIcon.setOnClickListener {
+            binding.drawerLayout.openDrawer(Gravity.LEFT)
+        }
+        binding.appBarMain.backIcon.setOnClickListener {
+            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                drawerLayout.closeDrawers()
+            } else {
+
+                super.onBackPressed()
+            }
+        }
+    }
+
 }

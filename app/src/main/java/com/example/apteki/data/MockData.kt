@@ -1,5 +1,6 @@
 package com.example.apteki.data
 
+import com.github.mikephil.charting.data.PieEntry
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -86,6 +87,15 @@ class MockData {
             list.add(BranchInfo("Johongir", "Andijon Shaxar", "90 123-45-67", "Fillial 1"))
             list.add(BranchInfo("Johongir", "Andijon Shaxar", "90 123-45-67", "Fillial 1"))
             return list
+        }
+
+         fun funLoadPieChartData() {
+            val entries: ArrayList<PieEntry> = ArrayList()
+            entries.add(PieEntry(0.2f, "Food & Dining"))
+            entries.add(PieEntry(0.15f, "Medical"))
+            entries.add(PieEntry(0.10f, "Entertainment"))
+            entries.add(PieEntry(0.25f, "Electricity and Gas"))
+            entries.add(PieEntry(0.3f, "Housing"))
         }
 
     }

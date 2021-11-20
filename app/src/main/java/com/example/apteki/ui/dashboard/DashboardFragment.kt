@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentDashboardBinding
+import com.example.apteki.utils.navigate
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
-
 
     private val binding get() = _binding!!
 
@@ -30,14 +30,14 @@ class DashboardFragment : Fragment() {
 
     private fun setUpClickListener() {
         binding.dashboardTradeBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_dashboard_to_nav_trade_stats)
+            navigate(R.id.action_nav_dashboard_to_nav_trade_stats)
         }
         binding.dashboardInvoicesBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_dashboard_to_invoiceFragment)
+            navigate(R.id.action_nav_dashboard_to_invoiceFragment)
         }
 
         binding.dashboardEmployee.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_dashboard_to_employeeFragment)
+            navigate(R.id.action_nav_dashboard_to_employeeFragment)
         }
     }
 

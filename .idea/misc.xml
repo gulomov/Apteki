@@ -17,18 +17,19 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.3828125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/drawable/un_checked.xml" value="0.3828125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/activity_main.xml" value="0.23505434782608695" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/app_bar_main.xml" value="0.23505434782608695" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/content_main.xml" value="0.67" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/app_bar_main.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/content_main.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/date_picker.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_branch_info.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_branches.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_charts.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_dashboard.xml" value="0.16" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_employee_add.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_home.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_log_in.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_new_branches.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_products.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_trade_statistics.xml" value="0.42919389978213507" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_trade_statistics.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_branch_info.xml" value="0.9" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_branches_adapter.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_trade_statistics_adapter.xml" value="0.5" />

@@ -26,16 +26,6 @@ class NewBranches : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        onBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                //some logic that needs to be run before fragment is destroyed
-                findNavController().navigateUp()
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(
-            onBackPressedCallback
-        )
     }
 
     override fun onCreateView(

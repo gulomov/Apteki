@@ -7,29 +7,6 @@
     android:layout_height="match_parent">
 
 
-    <include
-        android:id="@+id/app_bar_main"
-        layout="@layout/app_bar_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <ImageView
-        android:id="@+id/toolbarLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:src="@drawable/apteki_uz_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/whiteLine"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarLogo" />
-
     <fragment
         android:id="@+id/nav_host_fragment_content_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -39,6 +16,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/whiteLine"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.apteki.ui.branches
+package com.example.apteki.ui.branches.branchesMain
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

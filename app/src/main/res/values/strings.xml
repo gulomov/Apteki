@@ -58,6 +58,7 @@
     <string name="address_hint">Andidjon shaxar</string>
     <string name="phone_hint">12345678</string>
     <string name="fill_the_blank">Bo\'sh joylarni to\'ldiring</string>
+    <string name="som">so\'m</string>
 
 
 </resources>

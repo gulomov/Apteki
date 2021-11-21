@@ -106,28 +106,36 @@ class LogInFragment : Fragment() {
             it.getContentIfNotHandled().let { resource ->
                 when (resource) {
                     is Resource.Loading -> {
-
+                        binding.logInBtn.isClickable = false
                     }
                     is Resource.Success -> {
-                        requireContext().saveToken(resource.data.data.token)
-                        requireContext().saveCompanyToken(resource.data.data.user.company.token)
+                        binding.logInBtn.isClickable = true
                         if (resource.data.success) {
+                            requireContext().saveToken(resource.data.data.token)
+                            requireContext().saveCompanyToken(resource.data.data.user.company.token)
                             findNavController().navigate(
                                 R.id.action_nav_logIn_to_nav_branches,
                                 null, navOptions
                             )
                             requireContext().savePassword(passwordEdit.text.toString())
                             requireContext().setLoggedIn()
+                        } else {
+                            binding.toastText.text = resource.data.error
+                            animUp(binding.toastText)
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                animDown(binding.toastText)
+                            }, 1000)
                         }
                     }
                     is Resource.GenericError -> {
-
+                        binding.logInBtn.isClickable = true
                         Log.d(
                             "here",
                             "here2 ${resource.errorResponse.message}"
                         )
                     }
                     is Resource.Error -> {
+                        binding.logInBtn.isClickable = true
                         Log.d("here", "here3  ${resource.exception.message}")
                     }
                 }

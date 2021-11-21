@@ -23,7 +23,19 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatEditText
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.util.*
+
+fun Context.format(text: TextView) {
+
+    val simpleText = text.text.toString()
+    val longval = simpleText.toLong()
+    val formatter: DecimalFormat = NumberFormat.getInstance(Locale.US) as DecimalFormat
+    formatter.applyPattern("#,###,###,###")
+    return text.setText(formatter.format(longval))
+}
+
 
 
 fun Fragment.toDpi(px: Int): Int {
@@ -203,4 +215,5 @@ class SpacesItemDecoration(
         }
 
     }
+
 }

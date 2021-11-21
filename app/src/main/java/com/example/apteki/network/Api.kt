@@ -1,5 +1,6 @@
 package com.example.apteki.network
 
+import com.example.apteki.network.pojo.BranchesResponse
 import com.example.apteki.network.pojo.LoginResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,4 +12,7 @@ interface Api {
         @Query("username") username: String,
         @Query("password") password: String
     ): Response<LoginResponse>
+
+    @GET("api2/filials/")
+    suspend fun getBranches(): Response<BranchesResponse>
 }

@@ -1,6 +1,7 @@
-package com.example.apteki.ui.dashboard
+package com.example.apteki.ui.branches.branchesInner
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.example.apteki.R
 import com.example.apteki.databinding.FragmentDashboardBinding
 import com.example.apteki.utils.navigate
 
-class DashboardFragment : Fragment() {
+class BranchesInnerFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
@@ -25,7 +26,12 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         setUpClickListener()
+        getIds()
         return binding.root
+    }
+
+    private fun getIds() {
+        Log.d("args", "${arguments?.getInt("id")}")
     }
 
     private fun setUpClickListener() {

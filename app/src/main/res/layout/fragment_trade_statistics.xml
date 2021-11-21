@@ -8,7 +8,7 @@
     android:background="@color/app_background"
     android:paddingTop="32dp"
 
-    tools:context=".ui.dashboard.trade.TradeStatisticsFragment">
+    tools:context=".ui.branches.branchesInner.trade.TradeStatisticsFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/calendarLayout"

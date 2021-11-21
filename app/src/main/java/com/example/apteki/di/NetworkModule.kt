@@ -1,5 +1,6 @@
 package com.example.apteki.di
 
+import android.util.Log
 import com.example.apteki.data.getToken
 import com.example.apteki.network.Api
 import com.example.apteki.network.ErrorResponse
@@ -46,8 +47,9 @@ val networkModule = module {
                     val request = chain.request().newBuilder()
                     request.addHeader("Content-type", "application/json")
                     request.addHeader("X-Requested-With", "XMLHttpRequest")
-                    if (token != "")
-                        request.addHeader("Authorization", "Bearer $token")
+                    if (token != "") {
+                        request.addHeader("Authorization", "Token  $token")
+                    }
                     return@addInterceptor chain.proceed(request.build())
                 } catch (e: Throwable) {
 

@@ -1,4 +1,4 @@
-package com.example.apteki.ui.dashboard.invoice
+package com.example.apteki.ui.branches.branchesInner.invoice
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apteki.databinding.FragmentTradeStatisticsBinding
-import com.example.apteki.ui.dashboard.trade.TradeStatisticsAdapter
+import com.example.apteki.ui.branches.branchesInner.trade.TradeStatisticsAdapter
 import com.example.apteki.utils.SpacesItemDecoration
 import com.example.apteki.utils.dialogForCalendar
 import com.example.apteki.utils.toDpi

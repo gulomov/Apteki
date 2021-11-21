@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
-    tools:context=".ui.branches.BranchesFragment">
+    tools:context=".ui.branches.branchesMain.BranchesFragment">
 
     <ImageButton
         android:id="@+id/branchesAddBtn"

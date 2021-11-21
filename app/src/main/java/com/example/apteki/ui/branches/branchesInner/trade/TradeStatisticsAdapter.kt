@@ -1,4 +1,4 @@
-package com.example.apteki.ui.dashboard.trade
+package com.example.apteki.ui.branches.branchesInner.trade
 
 import android.view.LayoutInflater
 import android.view.View

@@ -7,7 +7,6 @@ import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -92,11 +91,11 @@ class MainActivity : AppCompatActivity() {
                     binding.appBarMain.backIcon.visibility = View.GONE
                     binding.appBarMain.drawerIcon.visibility = View.VISIBLE
                 }
-                R.id.nav_dashboard -> {
+                R.id.nav_branches_info -> {
                     binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
                     binding.appBarMain.whiteLine.visibility = View.VISIBLE
-                    binding.appBarMain.backIcon.visibility = View.GONE
-                    binding.appBarMain.drawerIcon.visibility = View.VISIBLE
+                    binding.appBarMain.backIcon.visibility = View.VISIBLE
+                    binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
                 R.id.nav_products -> {
                     binding.appBarMain.toolbarLogo.visibility = View.VISIBLE

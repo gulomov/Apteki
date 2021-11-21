@@ -5,7 +5,7 @@
     android:layout_width="150dp"
     android:layout_height="wrap_content"
     app:cardCornerRadius="20dp"
-    tools:context=".ui.branches.BranchesAdapter">
+    tools:context=".ui.branches.branchesMain.BranchesAdapter">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="16dp"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:text="@string/example"
             android:textColor="@color/view_item_color"
             android:textSize="20sp" />
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="24dp"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:text="@string/example"
             android:textColor="@color/color_like_app_background"
             android:textSize="16sp" />
@@ -41,8 +41,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/example"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/som"
             android:textColor="@color/view_item_currency_color"
             android:textSize="14sp" />
     </LinearLayout>

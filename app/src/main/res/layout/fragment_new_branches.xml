@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/app_background"
     android:padding="24dp"
-    tools:context=".ui.branches.NewBranches">
+    tools:context=".ui.branches.branchesMain.NewBranches">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"

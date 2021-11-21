@@ -1,4 +1,4 @@
-package com.example.apteki.ui.dashboard.employee.info
+package com.example.apteki.ui.branches.branchesInner.employee.info
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

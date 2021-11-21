@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.branches.branchesInner.BranchesInnerFragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dashboardTradeBtn"

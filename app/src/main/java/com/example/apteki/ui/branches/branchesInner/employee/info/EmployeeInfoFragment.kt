@@ -1,11 +1,10 @@
-package com.example.apteki.ui.dashboard.employee.info
+package com.example.apteki.ui.branches.branchesInner.employee.info
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentBranchInfoBinding

@@ -1,4 +1,4 @@
-package com.example.apteki.ui.dashboard.employee
+package com.example.apteki.ui.branches.branchesInner.employee
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentEmployeeAddBinding

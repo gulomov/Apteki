@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/app_background"
     android:padding="24dp"
-    tools:context=".ui.dashboard.employee.EmployeeAddFragment">
+    tools:context=".ui.branches.branchesInner.employee.EmployeeAddFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"

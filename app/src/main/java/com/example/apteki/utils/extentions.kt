@@ -37,7 +37,6 @@ fun Context.format(text: TextView) {
 }
 
 
-
 fun Fragment.toDpi(px: Int): Int {
     return ((requireContext().resources.displayMetrics.density * px) + 0.5f).toInt()
 }
@@ -56,7 +55,7 @@ fun Fragment.dialogForCalendar(text: String, textView: TextView) {
         today.get(Calendar.DAY_OF_MONTH)
     ) { view, year, monthOfYear, dayOfMonth ->
         val month = monthOfYear + 1
-        val msg = "$dayOfMonth.$month.$year"
+        val msg = "$year-$month-$dayOfMonth"
         if (text == "fromData") {
             textView.text = msg
         } else if (text == "toData") {

@@ -42,8 +42,8 @@
             android:background="@drawable/bg_rounder"
             android:elevation="10dp"
             android:fontFamily="@font/montserrat_regular"
-            android:padding="8dp"
             android:text="@string/date_example"
+            android:padding="8dp"
             android:textAlignment="center"
             android:textColor="@color/view_item_color"
             android:textSize="15sp" />
@@ -60,15 +60,15 @@
             android:background="@drawable/bg_rounder"
             android:elevation="10dp"
             android:fontFamily="@font/montserrat_regular"
+            android:text="@string/date_example_two"
             android:padding="8dp"
-            android:text="@string/date_example"
             android:textAlignment="center"
             android:textColor="@color/view_item_color"
             android:textSize="15sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/dashboardTradeBtn"
+        android:id="@+id/filterBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -84,13 +84,13 @@
         app:layout_constraintTop_toBottomOf="@+id/calendarLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dashboardTradeRecycler"
+        android:id="@+id/tradeRecycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardTradeBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/filterBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

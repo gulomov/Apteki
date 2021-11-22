@@ -121,12 +121,6 @@ class MainActivity : AppCompatActivity() {
                     binding.appBarMain.backIcon.visibility = View.VISIBLE
                     binding.appBarMain.drawerIcon.visibility = View.GONE
                 }
-                R.id.nav_employee_fragment -> {
-                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
-                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
-                    binding.appBarMain.backIcon.visibility = View.VISIBLE
-                    binding.appBarMain.drawerIcon.visibility = View.GONE
-                }
                 R.id.nav_employee_info -> {
                     binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
                     binding.appBarMain.whiteLine.visibility = View.VISIBLE

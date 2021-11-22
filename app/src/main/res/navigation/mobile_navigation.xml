@@ -20,16 +20,17 @@
     <fragment
         android:id="@+id/nav_branches_info"
         android:name="com.example.apteki.ui.branches.branchesInner.BranchesInnerFragment"
-        tools:layout="@layout/fragment_dashboard">
-        <action
-            android:id="@+id/action_nav_dashboard_to_nav_trade_stats"
-            app:destination="@id/nav_trade_stats" />
+        tools:layout="@layout/fragment_inner_branch">
+
         <action
             android:id="@+id/action_nav_dashboard_to_invoiceFragment"
             app:destination="@id/nav_invoice_stats" />
         <action
-            android:id="@+id/action_nav_dashboard_to_employeeFragment"
-            app:destination="@id/nav_employee_fragment" />
+            android:id="@+id/action_nav_branches_info_to_nav_trade_stats"
+            app:destination="@id/nav_trade_stats" />
+        <action
+            android:id="@+id/action_nav_branches_info_to_nav_employee_info"
+            app:destination="@id/nav_employee_info" />
     </fragment>
 
     <fragment
@@ -60,10 +61,6 @@
         android:id="@+id/nav_invoice_stats"
         android:name="com.example.apteki.ui.branches.branchesInner.invoice.InvoiceFragment"
         android:label="InvoiceFragment" />
-    <fragment
-        android:id="@+id/nav_employee_fragment"
-        android:name="com.example.apteki.ui.branches.branchesInner.employee.EmployeeFragment"
-        android:label="EmployeeFragment" />
     <fragment
         android:id="@+id/nav_employee_info"
         android:name="com.example.apteki.ui.branches.branchesInner.employee.info.EmployeeInfoFragment"

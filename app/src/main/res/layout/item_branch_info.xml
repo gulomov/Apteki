@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:text="@string/example"
             android:textColor="@color/color_like_app_background"
             android:textSize="15sp"
@@ -26,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:text="@string/address"
             android:textColor="@color/view_item_grey"
             android:textSize="13sp"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="12dp"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:text="@string/phone_number"
             android:textColor="@color/view_item_grey"
             android:textSize="13sp"
@@ -81,7 +82,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.70" />
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/branchNumber"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -94,15 +95,20 @@
 
             <TextView
                 android:id="@+id/branchNumberValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="center"
                 android:text="@string/example"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
-        </RelativeLayout>
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

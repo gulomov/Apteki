@@ -52,7 +52,6 @@ val networkModule = module {
                     }
                     return@addInterceptor chain.proceed(request.build())
                 } catch (e: Throwable) {
-
                 }
                 return@addInterceptor chain.proceed(chain.request())
             }

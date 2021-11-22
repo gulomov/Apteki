@@ -11,7 +11,7 @@
     tools:context=".ui.branches.branchesInner.BranchesInnerFragment">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/dashboardTradeBtn"
+        android:id="@+id/tradeBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -22,7 +22,7 @@
         android:textSize="18sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/dashboardInvoicesBtn"
+        android:id="@+id/invoicesBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -33,7 +33,7 @@
         android:textSize="18sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/dashboardEmployee"
+        android:id="@+id/employee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"

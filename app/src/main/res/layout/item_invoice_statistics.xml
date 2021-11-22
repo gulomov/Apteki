@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semi_bold"
-            android:text="@string/trade"
+            android:text="@string/invoices"
             android:textColor="@color/color_like_app_background"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,33 +41,12 @@
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/cash_title"
+            android:text="@string/invoice_warehouse_title"
             android:textColor="@color/view_item_grey"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/item_title" />
 
-        <TextView
-            android:id="@+id/loan_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="@string/loan_title"
-            android:textAlignment="textStart"
-            android:textColor="@color/view_item_grey"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@id/tradeDate"
-            app:layout_constraintStart_toEndOf="@+id/item_title"
-            app:layout_constraintTop_toBottomOf="@+id/item_title" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineVertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.7546174" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/invoiceGuideline"
@@ -77,21 +56,21 @@
             app:layout_constraintGuide_begin="190dp" />
 
         <TextView
-            android:id="@+id/card_title"
+            android:id="@+id/overall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@string/card_title"
+            android:text="@string/invoice_loan_title"
             android:textAlignment="textStart"
             android:textColor="@color/view_item_grey"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
+            app:layout_constraintStart_toStartOf="@+id/invoiceGuideline"
             app:layout_constraintTop_toBottomOf="@+id/item_title" />
 
         <TextView
-            android:id="@+id/cash"
+            android:id="@+id/branch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -102,22 +81,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cash_title" />
 
-        <TextView
-            android:id="@+id/loan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/montserrat_semi_bold"
-            android:text="@string/example"
-            android:textAlignment="textStart"
-            android:textColor="@color/view_item_color"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/loan_title"
-            app:layout_constraintTop_toBottomOf="@+id/loan_title" />
 
         <TextView
-            android:id="@+id/card"
+            android:id="@+id/money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -127,8 +93,8 @@
             android:textAlignment="textStart"
             android:textColor="@color/view_item_color"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/card_title"
-            app:layout_constraintTop_toBottomOf="@+id/card_title" />
+            app:layout_constraintStart_toStartOf="@+id/overall"
+            app:layout_constraintTop_toBottomOf="@+id/overall" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

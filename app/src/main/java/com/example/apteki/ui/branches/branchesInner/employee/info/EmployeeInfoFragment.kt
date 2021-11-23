@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentBranchInfoBinding
 import com.example.apteki.network.Resource
+import com.example.apteki.network.pojo.BranchesData
+import com.example.apteki.ui.branches.branchesMain.BranchesViewModel
 import com.example.apteki.utils.SpacesItemDecoration
 import com.example.apteki.utils.navigate
 import com.example.apteki.utils.toDpi
@@ -34,12 +36,19 @@ class EmployeeInfoFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBranchInfoBinding.inflate(inflater, container, false)
         setUpRecycler()
         setOnClickListener()
         getEmployee()
+        addNewEmployee()
         return binding.root
+    }
+
+    private fun addNewEmployee() {
+        binding.branchesAddBtn.setOnClickListener {
+            navigate(R.id.action_nav_branch_info_to_employeeAddFragment)
+        }
     }
 
     private fun getEmployee() {

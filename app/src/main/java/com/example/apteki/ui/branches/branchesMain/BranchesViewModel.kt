@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.apteki.network.Event
 import com.example.apteki.network.Resource
+import com.example.apteki.network.pojo.BranchesData
 import com.example.apteki.network.pojo.BranchesResponse
 import com.example.apteki.repository.Repository
 import kotlinx.coroutines.flow.launchIn
@@ -14,7 +15,6 @@ import kotlinx.coroutines.launch
 
 class BranchesViewModel(private val repository: Repository) : ViewModel() {
     val resourceBranches = MutableLiveData<Event<Resource<BranchesResponse>>>()
-
 
     fun getBranches() {
         viewModelScope.launch {

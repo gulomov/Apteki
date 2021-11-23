@@ -52,6 +52,104 @@
                 app:layout_constraintTop_toBottomOf="@+id/employeeName" />
 
             <TextView
+                android:id="@+id/employeeUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/employee_user_name"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/employeeNameEditText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/employeeUserNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/employee_user_name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_color"
+                android:textColorHint="@color/view_item_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/employeeUserName" />
+
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/employee_parol"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/employeeUserNameEditText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/employee_parol"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_color"
+                android:textColorHint="@color/view_item_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password" />
+
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/employee_type"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/typeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/employee_type"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_color"
+                android:textColorHint="@color/view_item_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type" />
+
+
+            <TextView
                 android:id="@+id/branchName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +159,7 @@
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/employeeNameEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/typeEditText" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/branchNameEditText"
@@ -160,6 +258,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/toastText"
         android:layout_width="match_parent"

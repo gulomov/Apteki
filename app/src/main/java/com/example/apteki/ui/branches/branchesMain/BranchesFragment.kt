@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentBranchesBinding
 import com.example.apteki.network.Resource
+import com.example.apteki.network.pojo.BranchesData
 import com.example.apteki.utils.SpacesItemDecoration
 import com.example.apteki.utils.navigate
 import com.example.apteki.utils.toDpi
@@ -21,8 +22,9 @@ class BranchesFragment : Fragment() {
     private var _binding: FragmentBranchesBinding? = null
     private val binding get() = _binding!!
     private lateinit var branchesAdapter: BranchesAdapter
-    private var brancheId=""
+    private var brancheId = ""
     private val viewModel: BranchesViewModel by viewModel()
+    private lateinit var branchData: BranchesData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setUpAdapter()
@@ -62,10 +64,10 @@ class BranchesFragment : Fragment() {
         }
     }
 
-    private fun  recyclerViewClick(){
-        branchesAdapter.onItemClick={
-            val bundle=Bundle()
-            bundle.putInt("id",it.id)
+    private fun recyclerViewClick() {
+        branchesAdapter.onItemClick = {
+            val bundle = Bundle()
+            bundle.putInt("id", it.id)
             navigate(R.id.action_nav_branches_to_nav_branches_info, bundle)
         }
     }

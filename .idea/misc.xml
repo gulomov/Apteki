@@ -24,18 +24,22 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_branches.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_charts.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_dashboard.xml" value="0.16" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_employee_add.xml" value="0.5" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_employee_add.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_home.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_log_in.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_new_branches.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_products.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/fragment_trade_statistics.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_branch_info.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_branch_spiner.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_branches_adapter.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_invoice_statistics.xml" value="0.32065217391304346" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/item_trade_statistics_adapter.xml" value="0.14" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/layout/simple_spinner_add_employee.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/menu/activity_main_drawer.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Apteki/app/src/main/res/menu/main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/User/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

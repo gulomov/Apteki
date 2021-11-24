@@ -29,7 +29,7 @@
         android:id="@+id/toolbarLogo"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:src="@drawable/apteki_uz_logo"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

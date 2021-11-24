@@ -6,11 +6,14 @@ import androidx.paging.PagingData
 import com.example.apteki.network.Api
 import com.example.apteki.network.ErrorResponse
 import com.example.apteki.network.Resource
+import com.example.apteki.network.pojo.AddEmployeeRequest
 import com.example.apteki.network.pojo.InvoiceResult
 import com.example.apteki.network.pojo.TradeResult
 import com.example.apteki.network.safeApiCall
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.ResponseBody
 import retrofit2.Converter
 
@@ -33,6 +36,46 @@ class Repository constructor(
         emit(Resource.Loading)
         emit(safeApiCall(errorConverter) { api.getEmployee(id) })
     }
+
+    suspend fun addEmployee(
+        addEmployeeRequest: AddEmployeeRequest
+    ) = flow {
+        emit(Resource.Loading)
+        emit(safeApiCall(errorConverter) {
+            api.addEmployee(
+                addEmployeeRequest.full_name.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                    .toString(),
+                addEmployeeRequest.username.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                    .toString(),
+                addEmployeeRequest.password.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                    .toString(),
+                addEmployeeRequest.type.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                    .toString(),
+                addEmployeeRequest.phone.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                    .toString(),
+                addEmployeeRequest.address.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                    .toString(),
+                addEmployeeRequest.branch.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                    .toString(),
+            )
+        })
+    }
+    /*  suspend fun addEmployee(
+          addEmployeeRequest: AddEmployeeRequest
+      ) = flow {
+          emit(Resource.Loading)
+          emit(safeApiCall(errorConverter) {
+              api.addEmployee(
+                  addEmployeeRequest.full_name,
+                  addEmployeeRequest.username,
+                  addEmployeeRequest.password,
+                  addEmployeeRequest.type,
+                  addEmployeeRequest.phone,
+                  addEmployeeRequest.address,
+                  addEmployeeRequest.branch,
+              )
+          })
+      }*/
 
     fun todaysTrade(id: Int): Flow<PagingData<TradeResult>> {
         return Pager(

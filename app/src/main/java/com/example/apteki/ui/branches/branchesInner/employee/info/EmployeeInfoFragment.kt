@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentBranchInfoBinding
 import com.example.apteki.network.Resource
-import com.example.apteki.network.pojo.BranchesData
-import com.example.apteki.ui.branches.branchesMain.BranchesViewModel
+import com.example.apteki.ui.branches.branchesInner.employee.EmployeeViewModel
 import com.example.apteki.utils.SpacesItemDecoration
 import com.example.apteki.utils.navigate
 import com.example.apteki.utils.toDpi

@@ -128,22 +128,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/typeEditText"
+            <Spinner
+                android:id="@+id/typeSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_rounder"
-                android:fontFamily="@font/montserrat_regular"
-                android:hint="@string/employee_type"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:maxLines="1"
                 android:padding="8dp"
                 android:textAlignment="center"
-                android:textColor="@color/view_item_color"
-                android:textColorHint="@color/view_item_color"
-                android:textSize="@dimen/edit_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/type" />
@@ -159,18 +151,16 @@
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/typeEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/typeSpinner" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/branchNameEditText"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/branchSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_rounder"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/branch_hint"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textAlignment="center"
@@ -180,6 +170,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/branchName" />
+
+
 
             <TextView
                 android:id="@+id/branchAddress"
@@ -191,7 +183,7 @@
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/branchNameEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/branchSpinner" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/branchAddressEditText"
@@ -255,7 +247,16 @@
                 android:background="@drawable/bg_rounder"
                 android:text="@string/adding_new_branch_submit"
                 app:layout_constraintTop_toBottomOf="@+id/phoneNumberEditText" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/branchRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/white"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/branchSpinner"
+                app:layout_constraintStart_toStartOf="@+id/branchSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/branchSpinner" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -274,4 +275,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
 package com.example.apteki.di
 
-import com.example.apteki.ui.branches.branchesInner.employee.info.EmployeeViewModel
+import com.example.apteki.ui.branches.branchesInner.employee.EmployeeViewModel
 import com.example.apteki.ui.branches.branchesInner.invoice.InvoiceViewModel
 import com.example.apteki.ui.branches.branchesInner.trade.TradeViewModel
 import com.example.apteki.ui.branches.branchesMain.BranchesViewModel

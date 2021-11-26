@@ -15,20 +15,39 @@ interface Api {
     @GET("api2/filials/")
     suspend fun getBranches(): Response<BranchesResponse>
 
-    @GET("api2/staff/")
-    suspend fun getEmployee(@Query("branch_id") id: Int): Response<EmployeeResponse>
+    @GET("api2/dashboard_chart/")
+    suspend fun getCharts(): Response<ChartsResponse>
 
-    @Multipart
+
+    @GET("api2/staff/")
+    suspend fun getEmployee(@Query("branch") id: Int): Response<EmployeeResponse>
+
+    /*
+        @Multipart
+        @POST("api2/staff/")
+        suspend fun addEmployee(
+            @Part("full_name") full_name: RequestBody,
+            @Part("username") username: RequestBody,
+            @Part("password") password: RequestBody,
+            @Part("type") type: RequestBody,
+            @Part("phone") phone: RequestBody,
+            @Part("address") address: RequestBody,
+            @Part("branch") branch: RequestBody,
+        ): Response<AddEmployeeResponse>
+    */
+    @FormUrlEncoded
     @POST("api2/staff/")
     suspend fun addEmployee(
-        @Part(" full_name") full_name: String,
-        @Part("username") username: String,
-        @Part("password") password: String,
-        @Part("type") type: String,
-        @Part("phone") phone: String,
-        @Part("address") address: String,
-        @Part("branch") branch: String,
+        @Field("full_name") full_name: String,
+        @Field("username") username: String,
+        @Field("password") password: String,
+        @Field("type") type: String,
+        @Field("phone") phone: String,
+        @Field("address") address: String,
+        @Field("branch") branch: String,
+        @Field("is_active") is_active: Boolean
     ): Response<AddEmployeeResponse>
+
 
     /* @POST("api2/staff/")
      suspend fun addEmployee(

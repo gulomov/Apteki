@@ -5,6 +5,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.JsonParser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
@@ -18,26 +20,83 @@ import java.net.InetSocketAddress
 import java.net.Socket
 
 
-//suspend fun <T> safeApiCall(call: suspend () -> Response<T>): Response<T>? {
-//    return try {
-//        call()
-//    } catch (e: Exception) {
-//        null
-//    }
-//}
-
-suspend fun <T : Any> safeApiCall(
-    errorConverter: Converter<ResponseBody, ErrorResponse>,
+/*suspend fun <T : Any> safeApiCall(
     apiCall: suspend () -> Response<T>
 ): Resource<T> {
     try {
         val response = apiCall()
-        return if (response.isSuccessful && response.body() != null)
-            Resource.Success<T>(response.body() as T)
-        else {
-            errorConverter.convert(response.errorBody())?.let { Resource.GenericError(it) }!!
+        return if (response.isSuccessful) {
+            if(response.body()!=null) Resource.Success<T>(response.body() as T) else Resource.Success<T>("" as T)
+        } else {
+            if (response.errorBody() != null) {
+                val retrofit = Retrofit.Builder().baseUrl("http://api.ussdbonus.uz/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                val converter: Converter<ResponseBody, RestError> = retrofit.responseBodyConverter(RestError::class.java, arrayOfNulls<Annotation>(0))
+                val _object: RestError? = converter.convert(response.errorBody());
+
+                Log.d("ERRORTAG", _object?.message.toString())
+
+                val errorResponse = ErrorResponse(
+                    message = _object?.message?:""
+                )
+                errorResponse.error = response.code()
+                if (errorResponse.jsonResponse.toString().contains("message")) {
+                    if (errorResponse.jsonResponse.has("error")) {
+                        errorResponse.message = errorResponse.jsonResponse.getJSONObject("error").getString(
+                            "message"
+                        )
+                    }
+                }
+                Resource.GenericError(errorResponse)
+            } else
+                Resource.GenericError(ErrorResponse("Unknown error"))
         }
     } catch (throwable: Throwable) {
+        Log.d("ErrorTag", throwable.message.toString())
+        return when (throwable) {
+            is ConnectException,
+            is NoConnectivityException -> {
+                Resource.Error(NoConnectivityException())
+            }
+            is HttpException -> {
+                val errorResponse: ErrorResponse = throwable.response()?.body() as ErrorResponse
+                Resource.GenericError(errorResponse)
+            }
+            is IOException -> {
+                Resource.Error(Exception("IOException: " + throwable.message))
+            }
+            else -> {
+                Resource.Error(Exception(throwable.message))
+            }
+        }
+    }
+}*/
+
+suspend fun <T : Any> safeApiCall(
+    apiCall: suspend () -> Response<T>
+): Resource<T> {
+    try {
+        val response = apiCall()
+        if (response.isSuccessful && response.body() != null) {
+            return Resource.Success<T>(response.body() as T)
+        } else {
+            return if (response.errorBody() != null) {
+                Log.d("here", "here 111")
+                val jsonParser = JsonParser()
+                val jsonElement = jsonParser.parse(response.errorBody()!!.string())
+                val errorResponse = Gson().fromJson(
+                    jsonElement,
+                    ErrorResponse::class.java
+                )
+                Log.d("here", "here 222 $errorResponse")
+                Resource.GenericError(errorResponse)
+            } else {
+                Resource.GenericError(ErrorResponse(message = "Unknown error"))
+            }
+        }
+    } catch (throwable: Throwable) {
+        Log.d("here", "here 333")
         Log.d("ErrorTag", throwable.message.toString())
         when (throwable) {
             is ConnectException,
@@ -45,21 +104,19 @@ suspend fun <T : Any> safeApiCall(
                 return Resource.Error(NoConnectivityException())
             }
             is HttpException -> {
-//                    val code = throwable.code()
-//                    if(code == 503){
-////                        val errorResponse = ErrorResponse("Server is unavailable")
-////                        ResultWrapper.GenericError(code, errorResponse)
-//                    }else{
+                Log.d("here", "here 444")
                 val errorResponse: ErrorResponse = throwable.response()?.body() as ErrorResponse
                 return Resource.GenericError(errorResponse)
-//                    }
+            }
+            is IOException -> {
+                return Resource.Error(Exception("IOException: " + throwable.message))
             }
             else -> {
+                Log.d("here", "here 555")
                 return Resource.Error(Exception(throwable.message))
             }
         }
     }
-//    }
 }
 //
 //suspend fun <T : Any> safeApiCallTwo(

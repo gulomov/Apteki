@@ -15,6 +15,7 @@ import org.koin.dsl.module
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 const val BASE_URL: String = "http://backoffice.apteki.uz/"
@@ -24,16 +25,16 @@ val networkModule = module {
         val retrofit = get<Retrofit>()
         retrofit.create(Api::class.java)
     }
-    single<Gson> {
-        GsonBuilder()
-            .setLenient()
-            .create()
-    }
+//    single<Gson> {
+//        GsonBuilder()
+//            .setLenient()
+//            .create()
+//    }
     single<Retrofit> {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(get<OkHttpClient>())
-            .addConverterFactory(GsonConverterFactory.create(get()))
+            .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
     single<OkHttpClient> {

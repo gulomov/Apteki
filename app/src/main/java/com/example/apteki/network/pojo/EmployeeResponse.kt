@@ -2,7 +2,7 @@ package com.example.apteki.network.pojo
 
 data class EmployeeResponse(
     val success: Boolean,
-    val data: ArrayList<EmployeeData>
+    val data: List<EmployeeData>
 )
 
 data class EmployeeData(

@@ -7,5 +7,6 @@ data class AddEmployeeRequest(
     val type: String,
     val phone: String,
     val address: String,
-    val branch: String
+    val branch: String,
+    val is_active:Boolean
 )

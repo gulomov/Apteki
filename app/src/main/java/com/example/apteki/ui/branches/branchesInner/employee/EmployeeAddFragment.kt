@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apteki.network.pojo.AddEmployeeRequest
@@ -131,32 +132,24 @@ class EmployeeAddFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private fun setOnClickListener() {
         binding?.addingEmployeeSubmitBtn?.setOnClickListener {
             if (name.text!!.isNotEmpty() && userName.text!!.isNotEmpty() && password.text!!.isNotEmpty() && type.isNotEmpty() && branchText.text.isNotEmpty() && address.text!!.isNotEmpty() && phone.text!!.isNotEmpty()) {
-
+                val name = name.text.toString()
+                val userName = userName.text.toString()
+                val password = password.text.toString()
+                val phone = phone.text.toString()
+                val address = address.text.toString()
                 employeeViewModel.addEmployee(
                     AddEmployeeRequest(
-                        name.text.toString(),
-                        userName.text.toString(),
-                        password.text.toString(),
+                        name,
+                        userName,
+                        password,
                         type,
-                        phone.text.toString(),
-                        address.text.toString(),
+                        phone,
+                        address,
                         branch,
+                        true
                     )
                 )
-                Log.d(
-                    "here",
-                    "clicked ${
-                        AddEmployeeRequest(
-                            name.text.toString(),
-                            userName.text.toString(),
-                            password.text.toString(),
-                            type,
-                            phone.text.toString(),
-                            address.text.toString(),
-                            branch,
-                        )
-                    }"
-                )
+
             } else {
                 binding!!.toastText.text = resources.getString(R.string.fill_the_blank)
                 animUp(binding!!.toastText)
@@ -174,27 +167,41 @@ class EmployeeAddFragment : Fragment(), AdapterView.OnItemSelectedListener {
             it.getContentIfNotHandled().let { resource ->
                 when (resource) {
                     is Resource.Loading -> {
-                        Log.d(
-                            "here",
-                            "here23"
-                        )
+                        binding?.progress?.visibility = View.VISIBLE
+                        binding?.nested?.visibility = View.GONE
                     }
                     is Resource.Success -> {
-                        Log.d(
-                            "here",
-                            "here21 $resource"
-                        )
+                        binding?.progress?.visibility = View.GONE
+                        binding?.nested?.visibility = View.VISIBLE
+
+                        if (resource.data.success)
+                            findNavController().popBackStack()
+                        else {
+                            Log.d("ress", "${resource.data.success}")
+                            binding!!.toastText.text = resources.getString(R.string.fill_the_blank)
+                            animUp(binding!!.toastText)
+                            Handler(Looper.getMainLooper()).postDelayed(
+                                {
+                                    animDown(binding!!.toastText)
+                                }, 1000
+                            )
+                        }
                     }
                     is Resource.Error -> {
+                        binding?.progress?.visibility = View.GONE
+                        binding?.nested?.visibility = View.VISIBLE
+
                         Log.d(
                             "here",
-                            "here34 "
+                            "here34 ${resource.exception.message} "
                         )
                     }
                     is Resource.GenericError -> {
+                        binding?.nested?.visibility = View.VISIBLE
+                        binding?.progress?.visibility = View.GONE
                         Log.d(
                             "here",
-                            "here2 "
+                            "here2 ${resource.errorResponse.message}"
                         )
                     }
                 }

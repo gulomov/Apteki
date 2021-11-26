@@ -14,6 +14,7 @@ import androidx.navigation.ui.*
 import com.example.apteki.data.isLoggedIn
 import com.example.apteki.databinding.ActivityMainBinding
 import com.example.apteki.utils.NavigationUiHelper
+import com.example.apteki.utils.hideSoftKeyboard
 
 class MainActivity : AppCompatActivity() {
 
@@ -151,7 +152,7 @@ class MainActivity : AppCompatActivity() {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 drawerLayout.closeDrawers()
             } else {
-
+                this.hideSoftKeyboard()
                 super.onBackPressed()
             }
         }

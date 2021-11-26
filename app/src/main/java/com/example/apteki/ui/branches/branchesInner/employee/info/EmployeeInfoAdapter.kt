@@ -29,8 +29,8 @@ class EmployeeInfoAdapter : RecyclerView.Adapter<EmployeeInfoAdapter.ViewHolder>
         return ViewHolder(binding)
     }
 
-    fun update(tradeStatsList: ArrayList<EmployeeData>) {
-        this.tradeStatsList = tradeStatsList
+    fun update(tradeStatsList: List<EmployeeData>) {
+        this.tradeStatsList = tradeStatsList as MutableList<EmployeeData>
         notifyDataSetChanged()
     }
 

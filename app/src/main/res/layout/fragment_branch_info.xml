@@ -5,6 +5,18 @@
     android:layout_height="match_parent"
     android:background="@color/app_background">
 
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/white"
+        android:progressTint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/visibility"
         android:layout_width="wrap_content"
@@ -52,8 +64,8 @@
         android:id="@+id/branchesAddBtn"
         android:layout_width="41dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="32dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/bg_oval"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"

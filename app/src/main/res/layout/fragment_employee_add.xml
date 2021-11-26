@@ -9,6 +9,7 @@
     tools:context=".ui.branches.branchesInner.employee.EmployeeAddFragment">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -172,7 +173,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/branchName" />
 
 
-
             <TextView
                 android:id="@+id/branchAddress"
                 android:layout_width="wrap_content"
@@ -247,6 +247,7 @@
                 android:background="@drawable/bg_rounder"
                 android:text="@string/adding_new_branch_submit"
                 app:layout_constraintTop_toBottomOf="@+id/phoneNumberEditText" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/branchRecycler"
                 android:layout_width="match_parent"
@@ -276,5 +277,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ProgressBar
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        android:id="@+id/progress"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

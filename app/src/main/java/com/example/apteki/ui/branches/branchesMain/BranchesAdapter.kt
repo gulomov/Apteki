@@ -21,8 +21,8 @@ class BranchesAdapter() : RecyclerView.Adapter<BranchesAdapter.ViewHolder>() {
     }
 
 
-    fun update(branchesList: ArrayList<BranchesData>) {
-        this.branchesList = branchesList
+    fun update(branchesList: List<BranchesData>) {
+        this.branchesList = branchesList as MutableList<BranchesData>
         notifyDataSetChanged()
     }
 

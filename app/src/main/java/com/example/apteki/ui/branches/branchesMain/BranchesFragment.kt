@@ -79,14 +79,20 @@ class BranchesFragment : Fragment() {
             it.getContentIfNotHandled().let { resource ->
                 when (resource) {
                     is Resource.Loading -> {
-
+                        binding.loader.visibility = View.VISIBLE
                     }
                     is Resource.Success -> {
+                        binding.loader.visibility = View.GONE
+
                         if (resource.data.success) branchesAdapter.update(resource.data.data)
                     }
                     is Resource.Error -> {
+                        binding.loader.visibility = View.GONE
+
                     }
                     is Resource.GenericError -> {
+                        binding.loader.visibility = View.GONE
+
                         Log.d(
                             "here",
                             "here2 $resource"

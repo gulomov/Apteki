@@ -62,7 +62,14 @@
     <string name="address_hint">Andidjon shaxar</string>
     <string name="phone_hint">12345678</string>
     <string name="fill_the_blank">Bo\'sh joylarni to\'ldiring</string>
+    <string name="street_house">Shaxar, qocha, uy</string>
+    <string name="get_location_error"><![CDATA[Xaritadagi manzilingizni aniqlay olmaymiz<]]></string>
+    <string name="warning_enable_location">Avval joylashuvni yoqishingiz kerak</string>
+    <string name="warning_enable_permission">Joylashuv ruxsatisiz bu funksiya to\'g\'ri ishlamaydi!</string>
+    <string name="detecting_address">Manzil aniqlanmoqda..</string>
+    <string name="address_detected">Manzil aniqlandi.</string>
     <string name="som">so\'m</string>
+    <string name="chose">Belgilash</string>
     <string-array name="type_array">
         <item>Sotuvchi</item>
         <item>Omborchi</item>

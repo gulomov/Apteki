@@ -40,7 +40,11 @@
     <fragment
         android:id="@+id/nav_newBranches"
         android:name="com.example.apteki.ui.branches.branchesMain.NewBranches"
-        tools:layout="@layout/fragment_new_branches" />
+        tools:layout="@layout/fragment_new_branches" >
+        <action
+            android:id="@+id/action_nav_newBranches_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_logIn"
         android:name="com.example.apteki.ui.login.LogInFragment"
@@ -64,7 +68,7 @@
     <fragment
         android:id="@+id/nav_employee_info"
         android:name="com.example.apteki.ui.branches.branchesInner.employee.info.EmployeeInfoFragment"
-        android:label="BranchInfoFragment" >
+        android:label="BranchInfoFragment">
         <action
             android:id="@+id/action_nav_branch_info_to_employeeAddFragment"
             app:destination="@id/nav_add_employee" />
@@ -79,4 +83,8 @@
         android:name="com.example.apteki.ui.charts.ChartsFragment"
         android:label="fragment_charts"
         tools:layout="@layout/fragment_charts" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.apteki.ui.map.MapFragment"
+        android:label="MapFragment" />
 </navigation>

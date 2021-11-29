@@ -22,19 +22,10 @@ interface Api {
     @GET("api2/staff/")
     suspend fun getEmployee(@Query("branch") id: Int): Response<EmployeeResponse>
 
-    /*
-        @Multipart
-        @POST("api2/staff/")
-        suspend fun addEmployee(
-            @Part("full_name") full_name: RequestBody,
-            @Part("username") username: RequestBody,
-            @Part("password") password: RequestBody,
-            @Part("type") type: RequestBody,
-            @Part("phone") phone: RequestBody,
-            @Part("address") address: RequestBody,
-            @Part("branch") branch: RequestBody,
-        ): Response<AddEmployeeResponse>
-    */
+    @GET("api/get-regions/")
+    suspend fun getRegions(): Response<RegionsResponse>
+
+
     @FormUrlEncoded
     @POST("api2/staff/")
     suspend fun addEmployee(

@@ -12,10 +12,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentNewBranchesBinding
+import com.example.apteki.network.Resource
 import com.example.apteki.ui.map.MapArguments
 import com.example.apteki.ui.map.SharedViewModel
 import com.example.apteki.utils.navigate
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class NewBranches : Fragment() {
@@ -29,7 +31,7 @@ class NewBranches : Fragment() {
     private var args: MapArguments? = null
     private var location_start = 41.2222
     private var location_end = 41.2222
-    
+    private val viewModel: BranchesViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +47,7 @@ class NewBranches : Fragment() {
         checkBoxClicking()
         setAddressClick()
         setLocation()
+        getRegions()
         return root
     }
 
@@ -68,11 +71,39 @@ class NewBranches : Fragment() {
                         resources.getString(R.string.address_detected)
                 location_start = args?.lat!!
                 location_end = args?.lng!!
-                Log.d("address","$location_start and $location_end")
+                Log.d("address", "$location_start and $location_end")
             })
         }
 
 
+    }
+
+    private fun getRegions() {
+        viewModel.getRegions()
+        viewModel.resourceRegions.observe(viewLifecycleOwner, Observer {
+            it.getContentIfNotHandled().let { resource ->
+                when (resource) {
+                    is Resource.Loading -> {
+                        Log.d("gee", "here")
+                    }
+                    is Resource.Success -> {
+                        Log.d("gee", "${resource.data.success}")
+                    }
+                    is Resource.Error -> {
+                        Log.d(
+                            "gee",
+                            "here2 ${resource.exception.message}"
+                        )
+                    }
+                    is Resource.GenericError -> {
+                        Log.d(
+                            "here",
+                            "here2 $resource"
+                        )
+                    }
+                }
+            }
+        })
     }
 
     private fun checkBoxClicking() {

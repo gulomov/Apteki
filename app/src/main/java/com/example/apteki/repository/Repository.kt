@@ -39,6 +39,12 @@ class Repository constructor(
         emit(safeApiCall { api.getEmployee(id) })
     }
 
+    suspend fun getRegions() = flow {
+        emit(Resource.Loading)
+        emit(safeApiCall { api.getRegions() })
+    }
+
+
     suspend fun addEmployee(
         addEmployeeRequest: AddEmployeeRequest
     ) = flow {

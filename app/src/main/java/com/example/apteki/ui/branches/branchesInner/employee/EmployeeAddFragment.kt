@@ -174,9 +174,18 @@ class EmployeeAddFragment : Fragment(), AdapterView.OnItemSelectedListener {
                         binding?.progress?.visibility = View.GONE
                         binding?.nested?.visibility = View.VISIBLE
 
-                        if (resource.data.success)
-                            findNavController().popBackStack()
-                        else {
+                        if (resource.data.success) {
+                            binding?.toastText?.text =
+                                resources.getString(R.string.new_employee_added)
+                            animUp(binding!!.toastText)
+                            Handler(Looper.getMainLooper()).postDelayed(
+                                {
+                                    animDown(binding!!.toastText)
+                                    findNavController().popBackStack()
+                                }, 1000
+                            )
+
+                        } else {
                             Log.d("ress", "${resource.data.success}")
                             binding!!.toastText.text = resources.getString(R.string.fill_the_blank)
                             animUp(binding!!.toastText)

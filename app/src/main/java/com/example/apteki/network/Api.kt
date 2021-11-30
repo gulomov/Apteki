@@ -25,6 +25,19 @@ interface Api {
     @GET("api/get-regions/")
     suspend fun getRegions(): Response<RegionsResponse>
 
+    @FormUrlEncoded
+    @POST("api2/filial_create/")
+    suspend fun addBranch(
+        @Field("region") region: String,
+        @Field("name") name: String,
+        @Field("phone") phone: String,
+        @Field("address") address: String,
+        @Field("work_time") work_time: String,
+        @Field("has_dastavka") has_dastavka: String,
+        @Field("longtitude") longtitude: String,
+        @Field("latitude") latitude: String,
+        @Field("type") type: String,
+    ): Response<AddBranchResponse>
 
     @FormUrlEncoded
     @POST("api2/staff/")

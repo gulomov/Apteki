@@ -88,7 +88,10 @@ class BranchesFragment : Fragment() {
                     }
                     is Resource.Error -> {
                         binding.loader.visibility = View.GONE
-
+                        Log.d(
+                            "here",
+                            "here2 ${resource.exception.message}"
+                        )
                     }
                     is Resource.GenericError -> {
                         binding.loader.visibility = View.GONE

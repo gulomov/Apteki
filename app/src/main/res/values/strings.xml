@@ -29,6 +29,7 @@
     <string name="adding_new_branch_map_longitude">Xarita uzunlik</string>
     <string name="adding_new_branch_map_longitude_hint"> </string>
     <string name="adding_new_branch_region">Viloyat</string>
+    <string name="adding_new_branch_type">Turi</string>
     <string name="adding_new_branch_delivery">Yetkazib berish xizmati</string>
     <string name="adding_new_branch_submit">Tasdiqlash</string>
     <string name="trade">Savdo</string>
@@ -68,6 +69,8 @@
     <string name="warning_enable_permission">Joylashuv ruxsatisiz bu funksiya to\'g\'ri ishlamaydi!</string>
     <string name="detecting_address">Manzil aniqlanmoqda..</string>
     <string name="address_detected">Manzil aniqlandi.</string>
+    <string name="new_branch_added">Yangi filial qo\'shildi</string>
+    <string name="new_employee_added">Yangi xodim qo\'shildi</string>
     <string name="som">so\'m</string>
     <string name="chose">Belgilash</string>
     <string-array name="type_array">

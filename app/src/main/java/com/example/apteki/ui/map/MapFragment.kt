@@ -64,15 +64,19 @@ class MapFragment : Fragment(), Map.CameraCallback,
 
     private val viewModel: SharedViewModel by inject()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        MapKitFactory.setApiKey("d2e07e8e-8462-4335-b333-141338e8578e")
+//        MapKitFactory.setApiKey("6f742b73-07c2-4391-b56c-936e1ed66f17")
+        MapKitFactory.initialize(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        MapKitFactory.setApiKey("d2e07e8e-8462-4335-b333-141338e8578e")
-//        MapKitFactory.setApiKey("6f742b73-07c2-4391-b56c-936e1ed66f17")
-        MapKitFactory.initialize(context)
+
         _binding = FragmentMapBinding.inflate(inflater, container, false)
 
         askForLocationPermission()

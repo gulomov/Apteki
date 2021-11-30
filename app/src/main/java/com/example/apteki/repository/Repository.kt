@@ -6,6 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.apteki.network.Api
 import com.example.apteki.network.Resource
+import com.example.apteki.network.pojo.AddBranchRequest
 import com.example.apteki.network.pojo.AddEmployeeRequest
 import com.example.apteki.network.pojo.InvoiceResult
 import com.example.apteki.network.pojo.TradeResult
@@ -44,6 +45,22 @@ class Repository constructor(
         emit(safeApiCall { api.getRegions() })
     }
 
+    suspend fun addBranch(branch: AddBranchRequest) = flow {
+        emit(Resource.Loading)
+        emit(safeApiCall {
+            api.addBranch(
+                branch.region,
+                branch.name,
+                branch.phone,
+                branch.address,
+                branch.work_time,
+                branch.has_dastavka,
+                branch.longtitude,
+                branch.latitude,
+                branch.type
+            )
+        })
+    }
 
     suspend fun addEmployee(
         addEmployeeRequest: AddEmployeeRequest

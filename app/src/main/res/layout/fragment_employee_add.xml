@@ -237,29 +237,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
-            <Button
-                android:id="@+id/addingEmployeeSubmitBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/bg_rounder"
-                android:text="@string/adding_new_branch_submit"
-                app:layout_constraintTop_toBottomOf="@+id/phoneNumberEditText" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/branchRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:background="@color/white"
                 android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="@+id/branchSpinner"
-                app:layout_constraintStart_toStartOf="@+id/branchSpinner"
-                app:layout_constraintTop_toBottomOf="@+id/branchSpinner" />
+                android:background="@drawable/bg_rounder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/branchSpinner" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/addingEmployeeSubmitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_rounder"
+        android:text="@string/adding_new_branch_submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/toastText"
@@ -278,11 +280,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
-        android:indeterminateTint="@color/white"
-        android:visibility="gone"
         android:id="@+id/progress"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

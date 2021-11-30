@@ -164,7 +164,7 @@ fun Fragment.navigate(resId: Int, args: Bundle? = null) {
         .setExitAnim(R.anim.exit)
         .setPopEnterAnim(R.anim.pop_enter)
         .setPopExitAnim(R.anim.pop_exit)
-
+    hideKeyboard()
     this.findNavController().navigate(resId, args, builder.build())
 }
 

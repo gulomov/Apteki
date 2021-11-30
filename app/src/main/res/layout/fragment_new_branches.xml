@@ -5,22 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
-    android:padding="24dp"
     tools:context=".ui.branches.branchesMain.NewBranches">
 
+
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/addingBranchSubmitBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="16dp">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/addingBranchNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,7 +34,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/addingBranchNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,6 +42,9 @@
                 android:background="@drawable/bg_rounder"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/adding_new_branch_name_hint"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
                 android:padding="8dp"
                 android:textAlignment="center"
                 android:textColor="@color/view_item_color"
@@ -48,7 +54,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchNameTextView" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/addingBranchPhoneTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +66,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchNameEditText" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/addingBranchPhoneEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,6 +74,9 @@
                 android:background="@drawable/bg_rounder"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/adding_new_branch_phone_hint"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
                 android:padding="8dp"
                 android:textAlignment="center"
                 android:textColor="@color/view_item_color"
@@ -77,19 +86,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchPhoneTextView" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/addingBranchAddressTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="@string/adding_new_branch_phone"
+                android:text="@string/adding_new_branch_address"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchPhoneEditText" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/addingBranchAddressEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -97,6 +106,9 @@
                 android:background="@drawable/bg_rounder"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/adding_new_branch_address_hint"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
                 android:padding="8dp"
                 android:textAlignment="center"
                 android:textColor="@color/view_item_color"
@@ -106,7 +118,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchAddressTextView" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/addingBranchWorkTimeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,7 +130,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchAddressEditText" />
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/addingBranchWorkTimeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -126,6 +138,9 @@
                 android:background="@drawable/bg_rounder"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/adding_new_branch_work_time_hint"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
                 android:padding="8dp"
                 android:textAlignment="center"
                 android:textColor="@color/view_item_color"
@@ -176,15 +191,50 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchLatitudeEditView" />
 
-            <Spinner
-                android:id="@+id/addingBranchRegionSpinner"
+            <TextView
+                android:id="@+id/addBranchRegion"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_rounder"
+                android:fontFamily="@font/montserrat_regular"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_color"
+                android:textColorHint="@color/view_item_color"
+                android:textSize="@dimen/edit_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/addingBranchRegionTextView" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/addingBranchType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/adding_new_branch_type"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addBranchRegion" />
+
+            <TextView
+                android:id="@+id/addBranchType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounder"
+                android:fontFamily="@font/montserrat_regular"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/view_item_color"
+                android:textColorHint="@color/view_item_color"
+                android:textSize="@dimen/edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addingBranchType" />
 
             <TextView
                 android:id="@+id/addingBranchDeliveryTextView"
@@ -210,18 +260,71 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toEndOf="@+id/addingBranchDeliveryTextView"
-                app:layout_constraintTop_toBottomOf="@+id/addingBranchRegionSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/addBranchType"
                 tools:ignore="ContentDescription" />
 
-            <Button
-                android:id="@+id/addingBranchSubmitBtn"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/regionRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/bg_rounder"
-                android:text="@string/adding_new_branch_submit"
-                app:layout_constraintTop_toBottomOf="@+id/addingBranchDeliveryCheckBox" />
+                android:padding="8dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/addBranchRegion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/typeRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_rounder"
+                android:padding="8dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/addBranchType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/addingBranchSubmitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_rounder"
+        android:text="@string/adding_new_branch_submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/toastText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@drawable/bg_rounded_with_black_10"
+        android:fontFamily="@font/montserrat_regular"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:text="@string/example"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/addingBranchSubmitBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

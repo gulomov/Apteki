@@ -73,8 +73,6 @@ dependencies {
 
     // Yandex
     implementation 'com.yandex.android:mapkit:3.5.0'
-    implementation 'com.yandex.android:transport:3.5.0'
-    implementation 'com.yandex.android:directions:3.5.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

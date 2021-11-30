@@ -34,10 +34,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_products"
-        android:name="com.example.apteki.ui.products.ProductsFragment"
-        tools:layout="@layout/fragment_products" />
-    <fragment
         android:id="@+id/nav_newBranches"
         android:name="com.example.apteki.ui.branches.branchesMain.NewBranches"
         tools:layout="@layout/fragment_new_branches" >

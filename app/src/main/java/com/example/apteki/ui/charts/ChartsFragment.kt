@@ -69,7 +69,7 @@ class ChartsFragment : Fragment() {
     private fun setPieChartLoad(info: List<Chart>) {
 
         for (chart in info)
-            pieEntries.add(PieEntry(100f, chart.branch_name))
+            pieEntries.add(PieEntry(chart.summa.toFloat(), chart.branch_name))
 
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#304567"))

@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Context
 import android.content.IntentSender
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
@@ -17,8 +16,6 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.apteki.R
 import com.example.apteki.databinding.FragmentMapBinding
-import com.example.apteki.yandex.Yandex
-import com.example.apteki.yandex.YandexApi
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.tasks.Task
@@ -35,14 +32,9 @@ import com.yandex.mapkit.map.CameraListener
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.CameraUpdateSource
 import com.yandex.mapkit.map.Map
-import com.yandex.mapkit.mapview.MapView
 import com.yandex.mapkit.user_location.UserLocationLayer
 import org.koin.android.ext.android.inject
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MapFragment : Fragment(), Map.CameraCallback,
@@ -60,7 +52,6 @@ class MapFragment : Fragment(), Map.CameraCallback,
 
     private var isLocationOn = false
     private val BASE_URL = "https://geocode-maps.yandex.ru//1.x/"
-    var call: Call<Yandex>? = null
 
     private val viewModel: SharedViewModel by inject()
 
@@ -271,9 +262,7 @@ class MapFragment : Fragment(), Map.CameraCallback,
 
 
     override fun onStop() {
-        if (call != null) {
-            call?.cancel()
-        }
+
         super.onStop()
         binding.mapView.onStop()
         MapKitFactory.getInstance().onStop()

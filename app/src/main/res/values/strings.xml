@@ -11,6 +11,7 @@
     </string>
     <string name="menu_branches">Filiallar</string>
     <string name="menu_products">Mahsulotlar</string>
+    <string name="menu_toke">Token</string>
     <string name="nav_header_dev_title"><![CDATA[OOO <<DigitalCity>> 2021]]></string>
     <string name="example">Example</string>
     <string name="date_example">2021-01-01</string>

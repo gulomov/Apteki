@@ -1,5 +1,6 @@
 package com.example.apteki
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.ui.*
+import com.example.apteki.data.getCompanyToken
 import com.example.apteki.data.isLoggedIn
 import com.example.apteki.databinding.ActivityMainBinding
 import com.example.apteki.utils.NavigationUiHelper
@@ -59,9 +61,11 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_dashboard, R.id.nav_branches, R.id.nav_products
+                R.id.nav_dashboard, R.id.nav_branches
             ), drawerLayout
         )
+
+
 
         navView.setupWithNavController(navController)
 
@@ -73,6 +77,17 @@ class MainActivity : AppCompatActivity() {
                 .setExitAnim(R.anim.exit)
                 .setPopEnterAnim(R.anim.pop_enter)
                 .setPopExitAnim(R.anim.pop_exit)
+            when (item.itemId) {
+                R.id.nav_share -> {
+                    val intent = Intent(Intent.ACTION_SEND)
+                    intent.type = "text/plain"
+                    intent.setPackage("org.telegram.messenger");
+                    intent.putExtra(Intent.EXTRA_TEXT, this.getCompanyToken())
+                    startActivity(Intent.createChooser(
+                        intent,"Share with"
+                    ))
+                }
+            }
             NavigationUiHelper.onNavDestinationSelected(item, navController, builder)
             drawerLayout.closeDrawer(GravityCompat.START)
             true
@@ -97,12 +112,6 @@ class MainActivity : AppCompatActivity() {
                     binding.appBarMain.whiteLine.visibility = View.VISIBLE
                     binding.appBarMain.backIcon.visibility = View.VISIBLE
                     binding.appBarMain.drawerIcon.visibility = View.GONE
-                }
-                R.id.nav_products -> {
-                    binding.appBarMain.toolbarLogo.visibility = View.VISIBLE
-                    binding.appBarMain.whiteLine.visibility = View.VISIBLE
-                    binding.appBarMain.backIcon.visibility = View.GONE
-                    binding.appBarMain.drawerIcon.visibility = View.VISIBLE
                 }
                 R.id.nav_newBranches -> {
                     binding.appBarMain.toolbarLogo.visibility = View.VISIBLE

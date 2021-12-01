@@ -28,9 +28,7 @@ import com.yandex.mapkit.location.LocationStatus
 import com.yandex.mapkit.logo.Alignment
 import com.yandex.mapkit.logo.HorizontalAlignment
 import com.yandex.mapkit.logo.VerticalAlignment
-import com.yandex.mapkit.map.CameraListener
-import com.yandex.mapkit.map.CameraPosition
-import com.yandex.mapkit.map.CameraUpdateSource
+import com.yandex.mapkit.map.*
 import com.yandex.mapkit.map.Map
 import com.yandex.mapkit.user_location.UserLocationLayer
 import org.koin.android.ext.android.inject
@@ -46,9 +44,6 @@ class MapFragment : Fragment(), Map.CameraCallback,
     private lateinit var currentLocation: Location
     private var isMapLoadedSuccessfully = false
     private var isMoveFinished = true
-    private lateinit var streetHouseName: String
-    private lateinit var completeAddress: String
-    private lateinit var cityName: String
 
     private var isLocationOn = false
     private val BASE_URL = "https://geocode-maps.yandex.ru//1.x/"
@@ -153,8 +148,6 @@ class MapFragment : Fragment(), Map.CameraCallback,
         val client: SettingsClient = LocationServices.getSettingsClient(requireActivity())
         val task: Task<LocationSettingsResponse> = client.checkLocationSettings(builder.build())
         task.addOnSuccessListener { locationSettingsResponse ->
-            // All loc_pin settings are satisfied. The client can initialize
-            // loc_pin requests here.
             isLocationOn = true
         }
 
@@ -195,10 +188,8 @@ class MapFragment : Fragment(), Map.CameraCallback,
 
         when (requestCode) {
             1020 -> {
-                // If request is cancelled, the result arrays are empty.
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED)) {
-                    // permission was granted, yay! Do the
-                    // contacts-related task you need to do.
+
                     listenForLocation()
                 } else {
                     Toast.makeText(
@@ -206,16 +197,13 @@ class MapFragment : Fragment(), Map.CameraCallback,
                         getString(R.string.warning_enable_permission),
                         Toast.LENGTH_SHORT
                     ).show()
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
+
                 }
                 return
             }
 
-            // Add other 'when' lines to check for other
-            // permissions this app might request.
+
             else -> {
-                // Ignore all other requests.
             }
         }
 
@@ -288,15 +276,12 @@ class MapFragment : Fragment(), Map.CameraCallback,
     override fun onCameraPositionChanged(
         map: Map,
         cameraPosition: CameraPosition,
-        cameraUpdateSource: CameraUpdateSource,
+        p2: CameraUpdateReason,
         b: Boolean
     ) {
         try {
             if (b) {
-                /*getDataFromUrl(
-                    cameraPosition.target.latitude.toString(),
-                    cameraPosition.target.longitude.toString()
-                )*/
+
                 Log.d(
                     "maper",
                     "2 here 3 ${cameraPosition.target.latitude} ${cameraPosition.target.longitude}"
@@ -309,79 +294,8 @@ class MapFragment : Fragment(), Map.CameraCallback,
         }
     }
 
-    /*   private fun getDataFromUrl(latitude: String, longitude: String) {
-
-           val retrofit = Retrofit.Builder()
-               .baseUrl(BASE_URL)
-               .addConverterFactory(GsonConverterFactory.create())
-               .build()
 
 
-           val yandexApi = retrofit.create(YandexApi::class.java)
-           var sub_url =
-               "?apikey=d2216fa4-de87-4d69-a2d6-8c0fc26f405b&format=json&geocode=$longitude,$latitude&results=1&lang=ru_RU"
-   //            "?apikey=814c74ce-2250-497f-9bee-c9b376d64431&format=json&geocode=$longitude,$latitude&results=1&lang=ru_RU"
 
-           call = yandexApi.getData(sub_url)
-
-           call?.enqueue(object : Callback<Yandex?> {
-               override fun onResponse(
-                   call: Call<Yandex?>,
-                   response: Response<Yandex?>
-               ) {
-                   Log.d("succes", "${response.isSuccessful}")
-                   if (response.isSuccessful && response.body() != null) {
-                       Log.d("succes", "here in success")
-                       completeAddress = ""
-                       streetHouseName = ""
-                       cityName = ""
-                       completeAddress = response.body()!!.response.geoObjectCollection
-                           .featureMember[0].geoObject.metaDataProperty
-                           .geocoderMetaData
-                           .address.formatted
-                       if (binding.cityText != null)
-                           fillCityText()
-
-                   } else {
-                   }
-               }
-
-               override fun onFailure(
-                   call: Call<Yandex?>,
-                   t: Throwable
-               ) {
-               }
-           })
-
-
-       }*/
-
-/*    private fun fillCityText() {
-        Log.d("succes", "here in success in in in ")
-        val completeAddressParser =
-            completeAddress.split(",".toRegex()).toTypedArray()
-        for (i in completeAddressParser.indices) {
-            if (completeAddressParser.size >= 3) {
-                streetHouseName =
-                    completeAddressParser[completeAddressParser.size - 2] + ", " + completeAddressParser[completeAddressParser.size - 1]
-                cityName = completeAddressParser[completeAddressParser.size - 3]
-            }
-        }
-        if (streetHouseName != "") {
-            binding.streetHouseText.text = streetHouseName.trim()
-            binding.cityText.visibility = View.VISIBLE
-            binding.cityText.text = cityName.trim()
-
-        } else {
-            binding.streetHouseText.text =
-                resources.getString(R.string.street_house)
-            binding.streetHouseText.setTextColor(Color.parseColor("#b6b6b6"))
-            binding.cityText.visibility = View.VISIBLE
-            binding.cityText.text =
-                resources.getString(R.string.get_location_error)
-        }
-        Log.d("maper", "here 4")
-        binding.btnChooseLocation.isEnabled = true
-    }*/
 
 }

@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 31
     defaultConfig {
-        applicationId "com.example.apteki"
+        applicationId "com.digitalcity.apteki"
         minSdk 23
         targetSdkVersion 31
         versionCode 1

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_branches"
-        android:name="com.example.apteki.ui.branches.branchesMain.BranchesFragment"
+        android:name="com.digitalcity.apteki.ui.branches.branchesMain.BranchesFragment"
         tools:layout="@layout/fragment_branches">
         <action
             android:id="@+id/action_nav_branches_to_nav_newBranches"
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_branches_info"
-        android:name="com.example.apteki.ui.branches.branchesInner.BranchesInnerFragment"
+        android:name="com.digitalcity.apteki.ui.branches.branchesInner.BranchesInnerFragment"
         tools:layout="@layout/fragment_inner_branch">
 
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/nav_newBranches"
-        android:name="com.example.apteki.ui.branches.branchesMain.NewBranches"
+        android:name="com.digitalcity.apteki.ui.branches.branchesMain.NewBranches"
         tools:layout="@layout/fragment_new_branches" >
         <action
             android:id="@+id/action_nav_newBranches_to_mapFragment"
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_logIn"
-        android:name="com.example.apteki.ui.login.LogInFragment"
+        android:name="com.digitalcity.apteki.ui.login.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in">
         <action
@@ -54,16 +54,16 @@
     </fragment>
     <fragment
         android:id="@+id/nav_trade_stats"
-        android:name="com.example.apteki.ui.branches.branchesInner.trade.TradeStatisticsFragment"
+        android:name="com.digitalcity.apteki.ui.branches.branchesInner.trade.TradeStatisticsFragment"
         android:label="fragment_trade_statistics"
         tools:layout="@layout/fragment_trade_statistics" />
     <fragment
         android:id="@+id/nav_invoice_stats"
-        android:name="com.example.apteki.ui.branches.branchesInner.invoice.InvoiceFragment"
+        android:name="com.digitalcity.apteki.ui.branches.branchesInner.invoice.InvoiceFragment"
         android:label="InvoiceFragment" />
     <fragment
         android:id="@+id/nav_employee_info"
-        android:name="com.example.apteki.ui.branches.branchesInner.employee.info.EmployeeInfoFragment"
+        android:name="com.digitalcity.apteki.ui.branches.branchesInner.employee.info.EmployeeInfoFragment"
         android:label="BranchInfoFragment">
         <action
             android:id="@+id/action_nav_branch_info_to_employeeAddFragment"
@@ -71,16 +71,16 @@
     </fragment>
     <fragment
         android:id="@+id/nav_add_employee"
-        android:name="com.example.apteki.ui.branches.branchesInner.employee.EmployeeAddFragment"
+        android:name="com.digitalcity.apteki.ui.branches.branchesInner.employee.EmployeeAddFragment"
         android:label="fragment_employee_add"
         tools:layout="@layout/fragment_employee_add" />
     <fragment
         android:id="@+id/nav_dashboard"
-        android:name="com.example.apteki.ui.charts.ChartsFragment"
+        android:name="com.digitalcity.apteki.ui.charts.ChartsFragment"
         android:label="fragment_charts"
         tools:layout="@layout/fragment_charts" />
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.apteki.ui.map.MapFragment"
+        android:name="com.digitalcity.apteki.ui.map.MapFragment"
         android:label="MapFragment" />
 </navigation>

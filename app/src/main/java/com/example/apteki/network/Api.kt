@@ -39,6 +39,7 @@ interface Api {
         @Field("type") type: String,
     ): Response<AddBranchResponse>
 
+
     @FormUrlEncoded
     @POST("api2/staff/")
     suspend fun addEmployee(
@@ -85,4 +86,8 @@ interface Api {
         @Query("date_start") date_start: String,
         @Query("date_end") date_end: String
     ): InvoiceResponse
+
+
+    @GET("api/search-product/")
+    suspend fun searchProduct(@Query("search") search: String): Response<SearchProductResponse>
 }

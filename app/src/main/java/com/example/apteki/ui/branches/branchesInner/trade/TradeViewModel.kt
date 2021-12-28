@@ -1,6 +1,5 @@
 package com.example.apteki.ui.branches.branchesInner.trade
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -12,9 +11,7 @@ import kotlinx.coroutines.flow.Flow
 class TradeViewModel(private val repository: Repository) : ViewModel() {
 
     fun getTodaysTrade(id: Int): Flow<PagingData<TradeResult>> {
-        val newResult: Flow<PagingData<TradeResult>> = repository.todaysTrade(id)
-            .cachedIn(viewModelScope)
-        return newResult
+        return repository.todaysTrade(id).cachedIn(viewModelScope)
     }
 
     fun getTodaysTradeByFilter(
@@ -22,9 +19,7 @@ class TradeViewModel(private val repository: Repository) : ViewModel() {
         data_start: String,
         data_end: String
     ): Flow<PagingData<TradeResult>> {
-        val newResult: Flow<PagingData<TradeResult>> =
-            repository.todaysTradeByFilter(id, type, data_start, data_end)
-                .cachedIn(viewModelScope)
-        return newResult
+        return repository.todaysTradeByFilter(id, type, data_start, data_end)
+            .cachedIn(viewModelScope)
     }
 }

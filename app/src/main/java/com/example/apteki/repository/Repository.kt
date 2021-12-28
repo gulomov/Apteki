@@ -80,22 +80,7 @@ class Repository constructor(
         })
 
     }
-    /*  suspend fun addEmployee(
-          addEmployeeRequest: AddEmployeeRequest
-      ) = flow {
-          emit(Resource.Loading)
-          emit(safeApiCall(errorConverter) {
-              api.addEmployee(
-                  addEmployeeRequest.full_name,
-                  addEmployeeRequest.username,
-                  addEmployeeRequest.password,
-                  addEmployeeRequest.type,
-                  addEmployeeRequest.phone,
-                  addEmployeeRequest.address,
-                  addEmployeeRequest.branch,
-              )
-          })
-      }*/
+
 
     fun todaysTrade(id: Int): Flow<PagingData<TradeResult>> {
         return Pager(

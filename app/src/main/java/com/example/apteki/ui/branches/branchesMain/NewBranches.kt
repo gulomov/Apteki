@@ -54,7 +54,6 @@ class NewBranches : Fragment() {
         setUpAdapter()
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -228,7 +227,7 @@ class NewBranches : Fragment() {
                     is Resource.Success -> {
                         binding.progress.visibility = View.GONE
                         binding.nested.visibility = View.VISIBLE
-                        if (resource.data.success){
+                        if (resource.data.success) {
 
                             binding.toastText.text = resources.getString(R.string.new_branch_added)
                             animUp(binding!!.toastText)
@@ -239,8 +238,7 @@ class NewBranches : Fragment() {
                                 }, 1000
                             )
 
-                        }
-                        else {
+                        } else {
                             binding.toastText.text = resources.getString(R.string.fill_the_blank)
                             animUp(binding.toastText)
                             Handler(Looper.getMainLooper()).postDelayed(

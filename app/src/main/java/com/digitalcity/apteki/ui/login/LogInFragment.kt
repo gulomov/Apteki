@@ -86,7 +86,11 @@ class LogInFragment : Fragment() {
 
     private fun goNext() {
         binding.logInBtn.setOnClickListener {
-            if (loginEdit.text!!.isNotEmpty() && passwordEdit.text!!.isNotEmpty()) {
+            findNavController().navigate(
+                R.id.action_nav_logIn_to_nav_branches,
+                null, navOptions
+            )
+            /*if (loginEdit.text!!.isNotEmpty() && passwordEdit.text!!.isNotEmpty()) {
                 viewModel.getLogIn(loginEdit.text.toString(), passwordEdit.text.toString())
 
             } else {
@@ -104,7 +108,7 @@ class LogInFragment : Fragment() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     animDown(binding.toastText)
                 }, 1000)
-            }
+            }*/
         }
     }
 
